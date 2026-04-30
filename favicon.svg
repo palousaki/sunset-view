@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Sky -->
+  <rect width="32" height="32" rx="4" fill="#f5ede0"/>
+  <!-- Sea -->
+  <rect x="0" y="20" width="32" height="12" rx="0" fill="#7aabbf"/>
+  <rect x="0" y="28" width="32" height="4" rx="0" fill="#5a8fa3"/>
+  <!-- Sun half-set on horizon -->
+  <clipPath id="above">
+    <rect x="0" y="0" width="32" height="20"/>
+  </clipPath>
+  <circle cx="16" cy="20" r="8" fill="#c17f52" clip-path="url(#above)"/>
+  <!-- Horizon line -->
+  <line x1="0" y1="20" x2="32" y2="20" stroke="#b8956a" stroke-width="1"/>
+  <!-- Round corners on bottom to match rx="4" on sky rect -->
+  <rect x="0" y="28" width="32" height="4" rx="0" fill="#5a8fa3"/>
+  <path d="M0 28 h32 v3 q0 1-1 1 H1 q-1 0-1-1 z" fill="#5a8fa3"/>
+</svg>
