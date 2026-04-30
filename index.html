@@ -752,6 +752,28 @@
     .gallery-item.wide, .gallery-item.tall { grid-column: span 1; grid-row: span 1; }
     .reviews-rating-bar { flex-direction: column; text-align: center; }
   }
+
+  /* LANG TOGGLE */
+  .lang-toggle {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.75);
+    background: none;
+    border: 1px solid rgba(255,255,255,0.35);
+    padding: 0.3rem 0.65rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  nav.scrolled .lang-toggle {
+    color: var(--text-light);
+    border-color: var(--sand-deep);
+  }
+  .lang-toggle:hover { background: rgba(255,255,255,0.12); }
+  nav.scrolled .lang-toggle:hover { background: var(--sand-mid); }
+  .nav-right { display: flex; align-items: center; gap: 0.6rem; }
 </style>
 </head>
 <body>
@@ -759,7 +781,10 @@
 <!-- NAV -->
 <nav id="navbar">
   <a class="nav-logo" href="/">Sunset View</a>
-  <a class="nav-cta" href="https://www.airbnb.com/rooms/36375757" target="_blank" rel="noopener noreferrer">Book on Airbnb</a>
+  <div class="nav-right">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">GR</button>
+    <a class="nav-cta" href="https://www.airbnb.com/rooms/36375757" target="_blank" rel="noopener noreferrer">Book on Airbnb</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1106,6 +1131,184 @@
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 50) lightboxNav(dx < 0 ? 1 : -1);
   });
+
+  // Language toggle
+  const i18n = {
+    en: {
+      title: 'Sunset View - Paralia Ofryniou, Greece',
+      navCta: 'Book on Airbnb',
+      heroEyebrow: 'Paralia Ofryniou · Greece',
+      heroSub: 'A beachfront escape with astonishing views of the Greek sea',
+      heroRating: '4.89 · 18 reviews · Guest Favourite',
+      heroBtn: 'Reserve Your Stay',
+      scroll: 'Scroll',
+      aboutLabel: 'About the Space',
+      aboutTitle: 'A place to <em>breathe</em> in Greece',
+      aboutP1: 'Brand new and thoughtfully appointed, Sunset View is a quiet retreat on the second floor of a two-storey building in Paralia Ofryniou - steps from the sea, yet close to the heart of the village.',
+      aboutP2: 'The apartment comfortably sleeps up to five guests, making it perfect for families or small groups seeking an authentic Greek seaside escape. Wake up to the shimmering Aegean, enjoy your morning coffee on the terrace, and let the rhythm of the sea set the pace for your day.',
+      highlightsLabel: 'Why Guests Love It',
+      highlightsTitle: 'Everything you <em>need</em>',
+      highlights: [
+        { title: 'Beachfront Access', desc: 'Direct access to the beach - the sea is practically your backyard.' },
+        { title: 'Astonishing Views', desc: 'Floor-to-ceiling views of the Aegean that guests rave about.' },
+        { title: 'Free Parking', desc: 'One of the few spots in the area with free on-premises parking.' },
+        { title: 'Great Restaurants', desc: 'Excellent dining options are just a short stroll away.' },
+        { title: 'Self Check-In', desc: 'Arrive on your own schedule - easy lockbox access awaits.' },
+        { title: 'Full Amenities', desc: 'Kitchen, WiFi, Smart TV - everything for a comfortable stay.' },
+      ],
+      galleryLabel: 'Gallery',
+      galleryTitle: 'See the <em>space</em>',
+      galleryBtn: '⊞ Show all 25 photos',
+      sleepingLabel: 'Sleeping Arrangements',
+      sleepingTitle: 'Sleeps up to <em>5 guests</em>',
+      sleeping: [
+        { label: 'Bedroom', value: '1 comfortable double bed' },
+        { label: 'Living Room', value: '1 sofa bed + 1 built-in couch' },
+        { label: 'Bathroom', value: '1 private full bathroom' },
+      ],
+      reviewsLabel: 'Guest Reviews',
+      reviewsTitle: 'What guests <em>say</em>',
+      reviewsCount: '18 reviews · Guest Favourite on Airbnb',
+      reviewCats: ['Cleanliness', 'Accuracy', 'Check-in', 'Communication', 'Location', 'Value'],
+      locationLabel: "Where You'll Be",
+      locationTitle: 'Paralia <em>Ofryniou</em>',
+      locationP1: 'A charming seaside village in the Kavala regional unit of northern Greece. Peaceful, authentic, and blessed with clear blue waters - exactly what a Greek summer should feel like.',
+      locationP2: 'The apartment sits in a quiet area while still being walking distance from the village center, tavernas, and the beach.',
+      locationPoints: ['Steps from the beach', 'Local tavernas & restaurants nearby', 'Village center within walking distance', 'Free parking on premises'],
+      ctaLabel: 'Ready to escape?',
+      ctaTitle: 'Your Greek summer<br><em>awaits</em>',
+      ctaSub: 'Book directly on Airbnb · Self check-in · Free parking · Beachfront',
+      ctaBtn: 'Check Availability',
+      footerText: 'Paralia Ofryniou, Greece · Hosted by Eleni',
+      footerLink: 'View on Airbnb ↗',
+      modalTitle: 'All photos · Sunset View',
+    },
+    el: {
+      title: 'Sunset View - Παραλία Οφρυνίου, Ελλάδα',
+      navCta: 'Κράτηση στο Airbnb',
+      heroEyebrow: 'Παραλία Οφρυνίου · Ελλάδα',
+      heroSub: 'Μια παραθαλάσσια απόδραση με εκπληκτική θέα στο Αιγαίο',
+      heroRating: '4.89 · 18 κριτικές · Αγαπημένο των επισκεπτών',
+      heroBtn: 'Κάντε Κράτηση',
+      scroll: 'Κύλιση',
+      aboutLabel: 'Σχετικά με τον Χώρο',
+      aboutTitle: 'Ένα μέρος να <em>αναπνεύσεις</em> στην Ελλάδα',
+      aboutP1: 'Ολοκαίνουργιο και επιμελώς διακοσμημένο, το Sunset View είναι ένα ήσυχο καταφύγιο στον δεύτερο όροφο ενός διώροφου κτιρίου στην Παραλία Οφρυνίου - βήματα από τη θάλασσα, αλλά κοντά στην καρδιά του χωριού.',
+      aboutP2: 'Το διαμέρισμα φιλοξενεί άνετα έως πέντε επισκέπτες, ιδανικό για οικογένειες ή μικρές παρέες που αναζητούν μια αυθεντική ελληνική παραθαλάσσια εμπειρία. Ξυπνήστε με θέα στο λαμπερό Αιγαίο, απολαύστε τον πρωινό σας καφέ στη βεράντα και αφήστε τον ρυθμό της θάλασσας να καθορίσει την ημέρα σας.',
+      highlightsLabel: 'Γιατί το Αγαπούν',
+      highlightsTitle: 'Όλα όσα <em>χρειάζεστε</em>',
+      highlights: [
+        { title: 'Πρόσβαση στην Παραλία', desc: 'Άμεση πρόσβαση στην παραλία - η θάλασσα είναι κυριολεκτικά η αυλή σας.' },
+        { title: 'Εκπληκτική Θέα', desc: 'Πανοραμική θέα στο Αιγαίο που εντυπωσιάζει κάθε επισκέπτη.' },
+        { title: 'Δωρεάν Παρκινγκ', desc: 'Ένα από τα λίγα σπίτια στην περιοχή με δωρεάν χώρο στάθμευσης.' },
+        { title: 'Εξαιρετικά Εστιατόρια', desc: 'Υπέροχες επιλογές φαγητού σε μικρή απόσταση με τα πόδια.' },
+        { title: 'Αυτόματο Check-In', desc: 'Φτάστε όποτε θέλετε - εύκολη πρόσβαση μέσω κλειδοθήκης.' },
+        { title: 'Πλήρεις Ανέσεις', desc: 'Κουζίνα, WiFi, Smart TV - όλα για μια άνετη διαμονή.' },
+      ],
+      galleryLabel: 'Γκαλερί',
+      galleryTitle: 'Δείτε τον <em>χώρο</em>',
+      galleryBtn: '⊞ Εμφάνιση όλων των 25 φωτογραφιών',
+      sleepingLabel: 'Χωρητικότητα',
+      sleepingTitle: 'Φιλοξενεί έως <em>5 επισκέπτες</em>',
+      sleeping: [
+        { label: 'Υπνοδωμάτιο', value: '1 άνετο διπλό κρεβάτι' },
+        { label: 'Σαλόνι', value: '1 καναπές-κρεβάτι + 1 χτιστός καναπές' },
+        { label: 'Μπάνιο', value: '1 ιδιωτικό μπάνιο' },
+      ],
+      reviewsLabel: 'Κριτικές Επισκεπτών',
+      reviewsTitle: 'Τι λένε οι <em>επισκέπτες</em>',
+      reviewsCount: '18 κριτικές · Αγαπημένο των επισκεπτών στο Airbnb',
+      reviewCats: ['Καθαριότητα', 'Ακρίβεια', 'Check-in', 'Επικοινωνία', 'Τοποθεσία', 'Αξία'],
+      locationLabel: 'Πού θα Βρίσκεστε',
+      locationTitle: 'Παραλία <em>Οφρυνίου</em>',
+      locationP1: 'Ένα γοητευτικό παραθαλάσσιο χωριό στην περιφερειακή ενότητα Καβάλας, στη βόρεια Ελλάδα. Ήρεμο, αυθεντικό και ευλογημένο με γαλαζοπράσινα νερά - ακριβώς αυτό που πρέπει να είναι ένα ελληνικό καλοκαίρι.',
+      locationP2: 'Το διαμέρισμα βρίσκεται σε ήσυχη περιοχή, αλλά σε κοντινή απόσταση με τα πόδια από το κέντρο του χωριού, τις ταβέρνες και την παραλία.',
+      locationPoints: ['Βήματα από την παραλία', 'Τοπικές ταβέρνες & εστιατόρια κοντά', 'Κέντρο χωριού σε κοντινή απόσταση', 'Δωρεάν παρκινγκ στο χώρο'],
+      ctaLabel: 'Έτοιμοι για απόδραση;',
+      ctaTitle: 'Το ελληνικό σας καλοκαίρι<br><em>σας περιμένει</em>',
+      ctaSub: 'Κράτηση στο Airbnb · Αυτόματο check-in · Δωρεάν παρκινγκ · Παραθαλάσσιο',
+      ctaBtn: 'Ελέγξτε Διαθεσιμότητα',
+      footerText: 'Παραλία Οφρυνίου, Ελλάδα · Οικοδέσποινα: Ελένη',
+      footerLink: 'Δείτε στο Airbnb ↗',
+      modalTitle: 'Όλες οι φωτογραφίες · Sunset View',
+    }
+  };
+
+  let currentLang = localStorage.getItem('sv-lang') || 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('sv-lang', lang);
+    document.documentElement.lang = lang;
+    document.title = i18n[lang].title;
+    document.getElementById('lang-toggle').textContent = lang === 'en' ? 'GR' : 'EN';
+
+    const t = i18n[lang];
+
+    document.querySelector('.nav-cta').textContent = t.navCta;
+    document.querySelector('.hero-eyebrow').textContent = t.heroEyebrow;
+    document.querySelector('.hero-sub').textContent = t.heroSub;
+    document.querySelector('.hero-rating span:last-child').textContent = t.heroRating;
+    document.querySelector('.hero-btn').textContent = t.heroBtn;
+    document.querySelector('.scroll-hint span').textContent = t.scroll;
+
+    const aboutText = document.querySelector('.about-text');
+    aboutText.querySelector('.section-label').textContent = t.aboutLabel;
+    aboutText.querySelector('.section-title').innerHTML = t.aboutTitle;
+    const aboutPs = aboutText.querySelectorAll('p:not(.section-label)');
+    aboutPs[0].textContent = t.aboutP1;
+    aboutPs[1].textContent = t.aboutP2;
+
+    document.querySelector('.highlights .section-label').textContent = t.highlightsLabel;
+    document.querySelector('.highlights .section-title').innerHTML = t.highlightsTitle;
+    document.querySelectorAll('.highlight-card').forEach((card, i) => {
+      card.querySelector('.highlight-title').textContent = t.highlights[i].title;
+      card.querySelector('.highlight-desc').textContent = t.highlights[i].desc;
+    });
+
+    document.querySelector('.gallery .section-label').textContent = t.galleryLabel;
+    document.querySelector('.gallery .section-title').innerHTML = t.galleryTitle;
+    document.querySelector('.gallery-btn').textContent = t.galleryBtn;
+
+    document.querySelector('.sleeping .section-label').textContent = t.sleepingLabel;
+    document.querySelector('.sleeping .section-title').innerHTML = t.sleepingTitle;
+    document.querySelectorAll('.sleep-card').forEach((card, i) => {
+      card.querySelector('.sleep-card-label').textContent = t.sleeping[i].label;
+      card.querySelector('.sleep-card-value').textContent = t.sleeping[i].value;
+    });
+
+    document.querySelector('.reviews .section-label').textContent = t.reviewsLabel;
+    document.querySelector('.reviews .section-title').innerHTML = t.reviewsTitle;
+    document.querySelector('.rating-count').textContent = t.reviewsCount;
+    document.querySelectorAll('.review-cat-name').forEach((el, i) => {
+      el.textContent = t.reviewCats[i];
+    });
+
+    document.querySelector('.location .section-label').textContent = t.locationLabel;
+    document.querySelector('.location .section-title').innerHTML = t.locationTitle;
+    const locDiv = document.querySelector('.location-inner > div:first-child');
+    locDiv.querySelectorAll('p:not(.section-label)').forEach((p, i) => {
+      p.textContent = [t.locationP1, t.locationP2][i];
+    });
+    document.querySelectorAll('.location-points li').forEach((li, i) => {
+      li.childNodes[1].nodeValue = ' ' + t.locationPoints[i];
+    });
+
+    document.querySelector('.cta-label').textContent = t.ctaLabel;
+    document.querySelector('.cta-title').innerHTML = t.ctaTitle;
+    document.querySelector('.cta-sub').textContent = t.ctaSub;
+    document.querySelector('.cta-btn').textContent = t.ctaBtn;
+
+    document.querySelector('.footer-text').textContent = t.footerText;
+    document.querySelector('.footer-link').textContent = t.footerLink;
+    document.querySelector('.modal-title').textContent = t.modalTitle;
+  }
+
+  function toggleLang() {
+    setLang(currentLang === 'en' ? 'el' : 'en');
+  }
+
+  setLang(currentLang);
 </script>
 
 </body>
