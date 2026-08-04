@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sunset View - Paralia Ofryniou, Greece</title>
-<meta name="description" content="Beachfront apartment in Paralia Ofryniou, Greece. Stunning Aegean views, sleeps 5, free parking, self check-in. Rated 4.89 ★ on Airbnb.">
+<meta name="description" content="Beachfront apartment in Paralia Ofryniou, Greece. Stunning Aegean views, sleeps 5, free parking, self check-in. Guest rating 4.89 ★.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -571,14 +571,19 @@
     color: rgba(255,255,255,0.3);
     letter-spacing: 0.06em;
   }
-  .footer-link {
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .footer-link, .footer-tel {
     font-size: 0.78rem;
     font-weight: 400;
     color: var(--sand-warm);
     text-decoration: none;
     letter-spacing: 0.08em;
   }
-  .footer-link:hover { color: var(--white); }
+  .footer-link:hover, .footer-tel:hover { color: var(--white); }
 
   /* GALLERY BUTTON */
   .gallery-footer {
@@ -745,6 +750,7 @@
     .review-categories { grid-template-columns: 1fr 1fr; }
     .sleeping-imgs img:first-child { aspect-ratio: 4/3; }
     footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+    .footer-right { justify-content: center; }
     .scroll-hint { display: none; }
   }
   @media (max-width: 560px) {
@@ -780,6 +786,125 @@
   .scroll-top.visible { opacity: 1; pointer-events: auto; }
   .scroll-top:hover { background: var(--dusk); transform: translateY(-2px); }
 
+  /* BOOKING FORM */
+  .booking { background: var(--sand-light); }
+  .booking-form {
+    max-width: 640px;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .booking-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.2rem;
+  }
+  .booking-field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .booking-field label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .booking-field input,
+  .booking-field select,
+  .booking-field textarea {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--sand-warm);
+    border-radius: 2px;
+    background: var(--white);
+    color: var(--text);
+  }
+  .booking-field textarea { resize: vertical; }
+  .booking-field input:focus,
+  .booking-field select:focus,
+  .booking-field textarea:focus {
+    outline: none;
+    border-color: var(--dusk);
+  }
+  .booking-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  .booking-btn {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    padding: 0.9rem 1.8rem;
+    border-radius: 2px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .booking-btn.submit { background: var(--terra); color: #fff; }
+  .booking-btn.submit:hover { background: var(--dark); transform: translateY(-2px); }
+  .booking-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+  .booking-note {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+  }
+  /* BOOKING MODAL */
+  .booking-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 400;
+    background: rgba(20, 14, 8, 0.75);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .booking-modal.open { display: flex; }
+  .booking-modal-card {
+    position: relative;
+    background: var(--white);
+    max-width: 420px;
+    width: 100%;
+    padding: 2.6rem 2.2rem 2.2rem;
+    border-radius: 2px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    animation: heroFadeUp 0.3s ease-out both;
+  }
+  .booking-modal-icon {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: var(--dusk);
+  }
+  .booking-modal-card.error .booking-modal-icon { color: #b3261e; }
+  .booking-modal-text {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .booking-modal-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    background: none;
+    border: 1px solid var(--sand-warm);
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.4rem 0.7rem;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .booking-modal-close:hover { background: var(--sand-light); }
+
   /* LANG TOGGLE */
   .lang-toggle {
     font-family: 'Jost', sans-serif;
@@ -810,7 +935,7 @@
   <span class="nav-logo">Sunset View</span>
   <div class="nav-right">
     <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">GR</button>
-    <a class="nav-cta" href="https://www.airbnb.com/rooms/36375757" target="_blank" rel="noopener noreferrer">Book on Airbnb</a>
+    <a class="nav-cta" href="#booking">Request to Book</a>
   </div>
 </nav>
 
@@ -824,9 +949,9 @@
     <p class="hero-sub">A beachfront escape with astonishing views of the Greek sea</p>
     <div class="hero-rating">
       <span class="stars">★★★★★</span>
-      <span>4.89 · 18 reviews · Guest Favourite</span>
+      <span>4.89 · 18 reviews</span>
     </div>
-    <a href="https://www.airbnb.com/rooms/36375757" target="_blank" rel="noopener noreferrer" class="hero-btn">Reserve Your Stay</a>
+    <a href="#booking" class="hero-btn">Reserve Your Stay</a>
   </div>
   <div class="scroll-hint">
     <div class="scroll-line"></div>
@@ -960,7 +1085,7 @@
     <div class="big-rating">4.89</div>
     <div class="rating-detail">
       <div class="rating-stars">★★★★★</div>
-      <div class="rating-count">18 reviews · Guest Favourite on Airbnb</div>
+      <div class="rating-count">18 reviews</div>
     </div>
     <div class="rating-tags">
       <span class="rating-tag">🌊 Beach</span>
@@ -1008,13 +1133,59 @@
   </div>
 </section>
 
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <p class="section-label">Request to Book</p>
+  <h2 class="section-title">Plan your <em>stay</em></h2>
+  <form class="booking-form" id="bookingForm">
+    <div class="booking-row">
+      <div class="booking-field">
+        <label for="checkin">Check-in</label>
+        <input type="date" id="checkin" name="checkin" required>
+      </div>
+      <div class="booking-field">
+        <label for="checkout">Check-out</label>
+        <input type="date" id="checkout" name="checkout" required>
+      </div>
+      <div class="booking-field">
+        <label for="guests">Guests</label>
+        <select id="guests" name="guests" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <div class="booking-row">
+      <div class="booking-field">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="booking-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+    </div>
+    <div class="booking-field">
+      <label for="message">Message (optional)</label>
+      <textarea id="message" name="message" rows="3"></textarea>
+    </div>
+    <div class="booking-actions">
+      <button type="button" class="booking-btn submit" id="btnSubmit">Send Booking Request</button>
+    </div>
+    <p class="booking-note">No online payment - we'll confirm availability and details directly with you.</p>
+  </form>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
     <p class="cta-label">Ready to escape?</p>
     <h2 class="cta-title">Your Greek summer<br><em>awaits</em></h2>
-    <p class="cta-sub">Book directly on Airbnb · Self check-in · Free parking · Beachfront</p>
-    <a href="https://www.airbnb.com/rooms/36375757" target="_blank" rel="noopener noreferrer" class="cta-btn">Check Availability</a>
+    <p class="cta-sub">Self check-in · Free parking · Beachfront · Direct booking</p>
+    <a href="#booking" class="cta-btn">Request to Book</a>
   </div>
 </section>
 
@@ -1022,11 +1193,23 @@
 <footer>
   <span class="footer-logo">Sunset View</span>
   <span class="footer-text">Paralia Ofryniou, Greece · Hosted by Eleni</span>
-  <a class="footer-link" href="https://www.airbnb.com/rooms/36375757" target="_blank" rel="noopener noreferrer">View on Airbnb ↗</a>
+  <div class="footer-right">
+    <a class="footer-tel" href="tel:+306974660309">+30 697 466 0309</a>
+    <a class="footer-link" href="#booking">Request a Booking ↗</a>
+  </div>
 </footer>
 
 <!-- SCROLL TO TOP -->
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
+
+<!-- BOOKING MODAL -->
+<div class="booking-modal" id="bookingModal" role="dialog" aria-modal="true">
+  <div class="booking-modal-card" id="bookingModalCard">
+    <button class="booking-modal-close" id="bookingModalClose" aria-label="Close">✕</button>
+    <div class="booking-modal-icon" id="bookingModalIcon"></div>
+    <p class="booking-modal-text" id="bookingModalText"></p>
+  </div>
+</div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
@@ -1164,14 +1347,110 @@
     if (Math.abs(dx) > 50) lightboxNav(dx < 0 ? 1 : -1);
   });
 
+  // Booking form
+  const HOST_EMAIL = 'info@sunsetview.gr';
+  const WEB3FORMS_KEY = '61c0e790-289f-4102-b2e9-a3488628b94b';
+  const bookingForm = document.getElementById('bookingForm');
+  const checkinInput = document.getElementById('checkin');
+  const checkoutInput = document.getElementById('checkout');
+
+  const todayStr = new Date().toISOString().split('T')[0];
+  checkinInput.min = todayStr;
+  checkoutInput.min = todayStr;
+  checkinInput.addEventListener('change', () => {
+    checkoutInput.min = checkinInput.value;
+    if (checkoutInput.value && checkoutInput.value <= checkinInput.value) checkoutInput.value = '';
+  });
+
+  const bookingLabels = {
+    en: {
+      subject: 'Booking request - Sunset View',
+      sending: 'Sending...',
+      success: 'Thank you! Your request has been sent - we will get back to you shortly.',
+      error: 'Something went wrong. Please try again, or email us directly at'
+    },
+    el: {
+      subject: 'Αίτημα κράτησης - Sunset View',
+      sending: 'Αποστολή...',
+      success: 'Ευχαριστούμε! Το αίτημά σας στάλθηκε - θα επικοινωνήσουμε σύντομα μαζί σας.',
+      error: 'Κάτι πήγε στραβά. Δοκιμάστε ξανά, ή στείλτε email απευθείας στο'
+    }
+  };
+
+  const bookingModal = document.getElementById('bookingModal');
+  const bookingModalCard = document.getElementById('bookingModalCard');
+  const bookingModalIcon = document.getElementById('bookingModalIcon');
+  const bookingModalText = document.getElementById('bookingModalText');
+  const btnSubmit = document.getElementById('btnSubmit');
+
+  function openBookingModal(text, isError) {
+    bookingModalCard.classList.toggle('error', isError);
+    bookingModalIcon.textContent = isError ? '⚠' : '✓';
+    bookingModalText.textContent = text;
+    bookingModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBookingModal() {
+    bookingModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('bookingModalClose').addEventListener('click', closeBookingModal);
+  bookingModal.addEventListener('click', (e) => {
+    if (e.target === bookingModal) closeBookingModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && bookingModal.classList.contains('open')) closeBookingModal();
+  });
+
+  btnSubmit.addEventListener('click', async () => {
+    if (!bookingForm.reportValidity()) return;
+    const t = bookingLabels[currentLang];
+    const guestEmail = document.getElementById('email').value;
+    const originalLabel = btnSubmit.textContent;
+
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = t.sending;
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: t.subject,
+          from_name: 'Sunset View - Booking Form',
+          replyto: guestEmail,
+          name: document.getElementById('name').value,
+          email: guestEmail,
+          checkin: checkinInput.value,
+          checkout: checkoutInput.value,
+          guests: document.getElementById('guests').value,
+          message: document.getElementById('message').value,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Submission failed');
+
+      openBookingModal(t.success, false);
+      bookingForm.reset();
+    } catch (err) {
+      openBookingModal(`${t.error} ${HOST_EMAIL}`, true);
+    } finally {
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = originalLabel;
+    }
+  });
+
   // Language toggle
   const i18n = {
     en: {
       title: 'Sunset View - Paralia Ofryniou, Greece',
-      navCta: 'Book on Airbnb',
+      navCta: 'Request to Book',
       heroEyebrow: 'Paralia Ofryniou · Greece',
       heroSub: 'A beachfront escape with astonishing views of the Greek sea',
-      heroRating: '4.89 · 18 reviews · Guest Favourite',
+      heroRating: '4.89 · 18 reviews',
       heroBtn: 'Reserve Your Stay',
       scroll: 'Scroll',
       aboutLabel: 'About the Space',
@@ -1200,27 +1479,37 @@
       ],
       reviewsLabel: 'Guest Reviews',
       reviewsTitle: 'What guests <em>say</em>',
-      reviewsCount: '18 reviews · Guest Favourite on Airbnb',
+      reviewsCount: '18 reviews',
       reviewCats: ['Cleanliness', 'Accuracy', 'Check-in', 'Communication', 'Location', 'Value'],
       locationLabel: "Where You'll Be",
       locationTitle: 'Paralia <em>Ofryniou</em>',
       locationP1: 'A charming seaside village in the Kavala regional unit of northern Greece. Peaceful, authentic, and blessed with clear blue waters - exactly what a Greek summer should feel like.',
       locationP2: 'The apartment sits in a quiet area while still being walking distance from the village center, tavernas, and the beach.',
       locationPoints: ['Steps from the beach', 'Local tavernas & restaurants nearby', 'Village center within walking distance', 'Free parking on premises'],
+      bookingLabel: 'Request to Book',
+      bookingTitle: 'Plan your <em>stay</em>',
+      checkinLabel: 'Check-in',
+      checkoutLabel: 'Check-out',
+      guestsLabel: 'Guests',
+      nameLabel: 'Full Name',
+      emailLabel: 'Email',
+      messageLabel: 'Message (optional)',
+      submitBtn: 'Send Booking Request',
+      bookingNote: "No online payment - we'll confirm availability and details directly with you.",
       ctaLabel: 'Ready to escape?',
       ctaTitle: 'Your Greek summer<br><em>awaits</em>',
-      ctaSub: 'Book directly on Airbnb · Self check-in · Free parking · Beachfront',
-      ctaBtn: 'Check Availability',
+      ctaSub: 'Self check-in · Free parking · Beachfront · Direct booking',
+      ctaBtn: 'Request to Book',
       footerText: 'Paralia Ofryniou, Greece · Hosted by Eleni',
-      footerLink: 'View on Airbnb ↗',
+      footerLink: 'Request a Booking ↗',
       modalTitle: 'All photos · Sunset View',
     },
     el: {
       title: 'Sunset View - Παραλία Οφρυνίου, Ελλάδα',
-      navCta: 'Κράτηση στο Airbnb',
+      navCta: 'Αίτημα Κράτησης',
       heroEyebrow: 'Παραλία Οφρυνίου · Ελλάδα',
       heroSub: 'Μια παραθαλάσσια απόδραση με εκπληκτική θέα στο Αιγαίο',
-      heroRating: '4.89 · 18 κριτικές · Αγαπημένο των επισκεπτών',
+      heroRating: '4.89 · 18 κριτικές',
       heroBtn: 'Κάντε Κράτηση',
       scroll: 'Κύλιση',
       aboutLabel: 'Σχετικά με τον Χώρο',
@@ -1249,19 +1538,29 @@
       ],
       reviewsLabel: 'Κριτικές Επισκεπτών',
       reviewsTitle: 'Τι λένε οι <em>επισκέπτες</em>',
-      reviewsCount: '18 κριτικές · Αγαπημένο των επισκεπτών στο Airbnb',
+      reviewsCount: '18 κριτικές',
       reviewCats: ['Καθαριότητα', 'Ακρίβεια', 'Check-in', 'Επικοινωνία', 'Τοποθεσία', 'Αξία'],
       locationLabel: 'Πού θα Βρίσκεστε',
       locationTitle: 'Παραλία <em>Οφρυνίου</em>',
       locationP1: 'Ένα γοητευτικό παραθαλάσσιο χωριό στην περιφερειακή ενότητα Καβάλας, στη βόρεια Ελλάδα. Ήρεμο, αυθεντικό και ευλογημένο με γαλαζοπράσινα νερά - ακριβώς αυτό που πρέπει να είναι ένα ελληνικό καλοκαίρι.',
       locationP2: 'Το διαμέρισμα βρίσκεται σε ήσυχη περιοχή, αλλά σε κοντινή απόσταση με τα πόδια από το κέντρο του χωριού, τις ταβέρνες και την παραλία.',
       locationPoints: ['Βήματα από την παραλία', 'Τοπικές ταβέρνες & εστιατόρια κοντά', 'Κέντρο χωριού σε κοντινή απόσταση', 'Δωρεάν παρκινγκ στο χώρο'],
+      bookingLabel: 'Αίτημα Κράτησης',
+      bookingTitle: 'Σχεδιάστε τη <em>διαμονή</em> σας',
+      checkinLabel: 'Άφιξη',
+      checkoutLabel: 'Αναχώρηση',
+      guestsLabel: 'Επισκέπτες',
+      nameLabel: 'Ονοματεπώνυμο',
+      emailLabel: 'Email',
+      messageLabel: 'Μήνυμα (προαιρετικό)',
+      submitBtn: 'Αποστολή Αιτήματος Κράτησης',
+      bookingNote: 'Χωρίς online πληρωμή - θα επιβεβαιώσουμε διαθεσιμότητα και λεπτομέρειες απευθείας μαζί σας.',
       ctaLabel: 'Έτοιμοι για απόδραση;',
       ctaTitle: 'Το ελληνικό σας καλοκαίρι<br><em>σας περιμένει</em>',
-      ctaSub: 'Κράτηση στο Airbnb · Αυτόματο check-in · Δωρεάν παρκινγκ · Παραθαλάσσιο',
-      ctaBtn: 'Ελέγξτε Διαθεσιμότητα',
+      ctaSub: 'Αυτόματο check-in · Δωρεάν παρκινγκ · Παραθαλάσσιο · Απευθείας κράτηση',
+      ctaBtn: 'Κάντε Αίτημα Κράτησης',
       footerText: 'Παραλία Οφρυνίου, Ελλάδα · Οικοδέσποινα: Ελένη',
-      footerLink: 'Δείτε στο Airbnb ↗',
+      footerLink: 'Κάντε Κράτηση ↗',
       modalTitle: 'Όλες οι φωτογραφίες · Sunset View',
     }
   };
@@ -1325,6 +1624,17 @@
     document.querySelectorAll('.location-points li').forEach((li, i) => {
       li.childNodes[1].nodeValue = ' ' + t.locationPoints[i];
     });
+
+    document.querySelector('.booking .section-label').textContent = t.bookingLabel;
+    document.querySelector('.booking .section-title').innerHTML = t.bookingTitle;
+    document.querySelector('label[for="checkin"]').textContent = t.checkinLabel;
+    document.querySelector('label[for="checkout"]').textContent = t.checkoutLabel;
+    document.querySelector('label[for="guests"]').textContent = t.guestsLabel;
+    document.querySelector('label[for="name"]').textContent = t.nameLabel;
+    document.querySelector('label[for="email"]').textContent = t.emailLabel;
+    document.querySelector('label[for="message"]').textContent = t.messageLabel;
+    document.getElementById('btnSubmit').textContent = t.submitBtn;
+    document.querySelector('.booking-note').textContent = t.bookingNote;
 
     document.querySelector('.cta-label').textContent = t.ctaLabel;
     document.querySelector('.cta-title').innerHTML = t.ctaTitle;
