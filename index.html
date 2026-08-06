@@ -1896,6 +1896,11 @@
         minDate: todayStr,
         disable: checkinDisabledRanges,
         onChange: (selectedDates, dateStr) => {
+          if (!dateStr) {
+            checkoutFp.set("minDate", todayStr);
+            checkoutFp.set("maxDate", null);
+            return;
+          }
           const nextBlockStart = BLOCKED_RANGES.map(([start]) => start)
             .filter((start) => start > dateStr)
             .sort()[0];
