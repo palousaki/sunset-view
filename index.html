@@ -1,1657 +1,2323 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunset View - Paralia Ofryniou, Greece</title>
-<meta name="description" content="Beachfront apartment in Paralia Ofryniou, Greece. Stunning Aegean views, sleeps 5, free parking, self check-in. Guest rating 4.89 ★.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --sand-light: #f5ede0;
-    --sand-mid: #e8d5b7;
-    --sand-warm: #d4b896;
-    --sand-deep: #b8956a;
-    --terra: #8b5e3c;
-    --dusk: #c17f52;
-    --sky: #7aabbf;
-    --white: #fdfaf6;
-    --dark: #2c1f14;
-    --text: #3d2b1a;
-    --text-light: #7a6250;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunset View - Paralia Ofryniou, Greece</title>
+    <meta
+      name="description"
+      content="Beachfront apartment in Paralia Ofryniou, Greece. Stunning Aegean views, sleeps 5, free parking, self check-in. Guest rating 4.89 ★."
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <style>
+      :root {
+        --sand-light: #f5ede0;
+        --sand-mid: #e8d5b7;
+        --sand-warm: #d4b896;
+        --sand-deep: #b8956a;
+        --terra: #8b5e3c;
+        --dusk: #c17f52;
+        --sky: #7aabbf;
+        --white: #fdfaf6;
+        --dark: #2c1f14;
+        --text: #3d2b1a;
+        --text-light: #7a6250;
+      }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--white);
-    color: var(--text);
-    overflow-x: hidden;
-  }
+      body {
+        font-family: "Jost", sans-serif;
+        background: var(--white);
+        color: var(--text);
+        overflow-x: hidden;
+      }
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 3rem;
-    background: transparent;
-    transition: background 0.4s, backdrop-filter 0.4s;
-  }
-  nav.scrolled {
-    background: rgba(245, 237, 224, 0.92);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 1px 24px rgba(44,31,20,0.08);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.4s;
-  }
-  nav.scrolled .nav-logo { color: var(--terra); }
-  .nav-cta {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--white);
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.6);
-    padding: 0.5rem 1.4rem;
-    border-radius: 2px;
-    transition: all 0.3s;
-  }
-  nav.scrolled .nav-cta {
-    color: var(--terra);
-    border-color: var(--terra);
-  }
-  .nav-cta:hover {
-    background: var(--white);
-    color: var(--terra);
-  }
-  nav.scrolled .nav-cta:hover {
-    background: var(--terra);
-    color: var(--white);
-  }
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 3rem;
+        background: transparent;
+        transition:
+          background 0.4s,
+          backdrop-filter 0.4s;
+      }
+      nav.scrolled {
+        background: rgba(245, 237, 224, 0.92);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 1px 24px rgba(44, 31, 20, 0.08);
+      }
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        color: var(--white);
+        text-decoration: none;
+        transition: color 0.4s;
+      }
+      nav.scrolled .nav-logo {
+        color: var(--terra);
+      }
+      .nav-cta {
+        font-family: "Jost", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--white);
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        padding: 0.5rem 1.4rem;
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+      nav.scrolled .nav-cta {
+        color: var(--terra);
+        border-color: var(--terra);
+      }
+      .nav-cta:hover {
+        background: var(--white);
+        color: var(--terra);
+      }
+      nav.scrolled .nav-cta:hover {
+        background: var(--terra);
+        color: var(--white);
+      }
 
-  /* HERO */
-  .hero {
-    position: relative;
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background-image: url('images/view.jpg');
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.04);
-    animation: heroZoom 12s ease-out forwards;
-  }
-  @keyframes heroZoom {
-    from { transform: scale(1.04); }
-    to { transform: scale(1); }
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(44,31,20,0.72) 0%,
-      rgba(44,31,20,0.2) 50%,
-      rgba(44,31,20,0.05) 100%
-    );
-  }
-  .hero-content {
-    position: relative;
-    padding: 0 3rem 5rem;
-    animation: heroFadeUp 1.2s ease-out 0.3s both;
-  }
-  @keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--sand-mid);
-    margin-bottom: 0.8rem;
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    font-weight: 300;
-    line-height: 0.95;
-    color: var(--white);
-    margin-bottom: 1.2rem;
-    letter-spacing: -0.01em;
-  }
-  .hero-title em {
-    font-style: italic;
-    color: var(--sand-warm);
-  }
-  .hero-sub {
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--sand-mid);
-    letter-spacing: 0.06em;
-    margin-bottom: 2.4rem;
-  }
-  .hero-rating {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    color: var(--sand-mid);
-    margin-bottom: 2rem;
-  }
-  .stars { color: #f4c44a; letter-spacing: 1px; }
-  .hero-btn {
-    display: inline-block;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--dark);
-    background: var(--sand-light);
-    text-decoration: none;
-    padding: 1rem 2.4rem;
-    border-radius: 2px;
-    transition: background 0.3s, transform 0.2s;
-  }
-  .hero-btn:hover {
-    background: var(--white);
-    transform: translateY(-2px);
-  }
+      /* HERO */
+      .hero {
+        position: relative;
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("images/view.jpg");
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.04);
+        animation: heroZoom 12s ease-out forwards;
+      }
+      @keyframes heroZoom {
+        from {
+          transform: scale(1.04);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(44, 31, 20, 0.72) 0%,
+          rgba(44, 31, 20, 0.2) 50%,
+          rgba(44, 31, 20, 0.05) 100%
+        );
+      }
+      .hero-content {
+        position: relative;
+        padding: 0 3rem 5rem;
+        animation: heroFadeUp 1.2s ease-out 0.3s both;
+      }
+      @keyframes heroFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-eyebrow {
+        font-size: 0.75rem;
+        font-weight: 400;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--sand-mid);
+        margin-bottom: 0.8rem;
+      }
+      .hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3.5rem, 8vw, 7rem);
+        font-weight: 300;
+        line-height: 0.95;
+        color: var(--white);
+        margin-bottom: 1.2rem;
+        letter-spacing: -0.01em;
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--sand-warm);
+      }
+      .hero-sub {
+        font-size: 0.95rem;
+        font-weight: 300;
+        color: var(--sand-mid);
+        letter-spacing: 0.06em;
+        margin-bottom: 2.4rem;
+      }
+      .hero-rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        color: var(--sand-mid);
+        margin-bottom: 2rem;
+      }
+      .stars {
+        color: #f4c44a;
+        letter-spacing: 1px;
+      }
+      .hero-btn {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--dark);
+        background: var(--sand-light);
+        text-decoration: none;
+        padding: 1rem 2.4rem;
+        border-radius: 2px;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+      }
+      .hero-btn:hover {
+        background: var(--white);
+        transform: translateY(-2px);
+      }
 
-  /* SCROLL HINT */
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    right: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    color: rgba(255,255,255,0.5);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    animation: heroFadeUp 1.2s ease-out 1s both;
-  }
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.5; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.1); }
-  }
+      /* SCROLL HINT */
+      .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        right: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        animation: heroFadeUp 1.2s ease-out 1s both;
+      }
+      .scroll-line {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.5),
+          transparent
+        );
+        animation: scrollPulse 2s ease-in-out infinite;
+      }
+      @keyframes scrollPulse {
+        0%,
+        100% {
+          opacity: 0.5;
+          transform: scaleY(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scaleY(1.1);
+        }
+      }
 
-  /* SECTION BASE */
-  section { padding: 6rem 3rem; }
-  .section-label {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--dusk);
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--dark);
-    margin-bottom: 1.5rem;
-  }
-  .section-title em { font-style: italic; color: var(--dusk); }
+      /* SECTION BASE */
+      section {
+        padding: 6rem 3rem;
+      }
+      .section-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--dusk);
+        margin-bottom: 1rem;
+      }
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 300;
+        line-height: 1.15;
+        color: var(--dark);
+        margin-bottom: 1.5rem;
+      }
+      .section-title em {
+        font-style: italic;
+        color: var(--dusk);
+      }
 
-  /* ABOUT */
-  .about {
-    background: var(--sand-light);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .about-text p {
-    font-size: 1.05rem;
-    font-weight: 300;
-    line-height: 1.85;
-    color: var(--text-light);
-    margin-bottom: 1.2rem;
-  }
-  .about-img {
-    position: relative;
-    border-radius: 2px;
-    overflow: hidden;
-    aspect-ratio: 4/5;
-  }
-  .about-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-  }
-  .about-img:hover img { transform: scale(1.04); }
-  .about-img::after {
-    content: '';
-    position: absolute;
-    bottom: -1px; right: -1px;
-    width: 60%;
-    height: 60%;
-    border-right: 2px solid var(--sand-warm);
-    border-bottom: 2px solid var(--sand-warm);
-    pointer-events: none;
-  }
+      /* ABOUT */
+      .about {
+        background: var(--sand-light);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .about-text p {
+        font-size: 1.05rem;
+        font-weight: 300;
+        line-height: 1.85;
+        color: var(--text-light);
+        margin-bottom: 1.2rem;
+      }
+      .about-img {
+        position: relative;
+        border-radius: 2px;
+        overflow: hidden;
+        aspect-ratio: 4/5;
+      }
+      .about-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+      .about-img:hover img {
+        transform: scale(1.04);
+      }
+      .about-img::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        right: -1px;
+        width: 60%;
+        height: 60%;
+        border-right: 2px solid var(--sand-warm);
+        border-bottom: 2px solid var(--sand-warm);
+        pointer-events: none;
+      }
 
-  /* HIGHLIGHTS */
-  .highlights { background: var(--white); }
-  .highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-  .highlight-card {
-    background: var(--sand-light);
-    padding: 2rem;
-    border-radius: 2px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .highlight-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 0;
-    background: var(--dusk);
-    transition: height 0.4s;
-  }
-  .highlight-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(44,31,20,0.1); }
-  .highlight-card:hover::before { height: 100%; }
-  .highlight-icon { font-size: 1.8rem; margin-bottom: 1rem; }
-  .highlight-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-weight: 500;
-    color: var(--dark);
-    margin-bottom: 0.4rem;
-  }
-  .highlight-desc {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--text-light);
-    line-height: 1.6;
-  }
+      /* HIGHLIGHTS */
+      .highlights {
+        background: var(--white);
+      }
+      .highlights-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+      .highlight-card {
+        background: var(--sand-light);
+        padding: 2rem;
+        border-radius: 2px;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .highlight-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--dusk);
+        transition: height 0.4s;
+      }
+      .highlight-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(44, 31, 20, 0.1);
+      }
+      .highlight-card:hover::before {
+        height: 100%;
+      }
+      .highlight-icon {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      .highlight-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        font-weight: 500;
+        color: var(--dark);
+        margin-bottom: 0.4rem;
+      }
+      .highlight-desc {
+        font-size: 0.85rem;
+        font-weight: 300;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
 
-  /* GALLERY */
-  .gallery { background: var(--dark); padding: 6rem 0; }
-  .gallery-header {
-    padding: 0 3rem;
-    margin-bottom: 3rem;
-  }
-  .gallery-header .section-label { color: var(--sand-warm); }
-  .gallery-header .section-title { color: var(--white); }
-  .gallery-header .section-title em { color: var(--sand-warm); }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    gap: 6px;
-    padding: 0 6px;
-  }
-  .gallery-item {
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-  .gallery-item.tall { grid-row: span 2; }
-  .gallery-item.wide { grid-column: span 2; }
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    min-height: 220px;
-    transition: transform 0.5s ease, filter 0.4s;
-    filter: brightness(0.9);
-    cursor: zoom-in;
-  }
-  .gallery-item:hover img {
-    transform: scale(1.06);
-    filter: brightness(1);
-  }
+      /* GALLERY */
+      .gallery {
+        background: var(--dark);
+        padding: 6rem 0;
+      }
+      .gallery-header {
+        padding: 0 3rem;
+        margin-bottom: 3rem;
+      }
+      .gallery-header .section-label {
+        color: var(--sand-warm);
+      }
+      .gallery-header .section-title {
+        color: var(--white);
+      }
+      .gallery-header .section-title em {
+        color: var(--sand-warm);
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        gap: 6px;
+        padding: 0 6px;
+      }
+      .gallery-item {
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+      .gallery-item.tall {
+        grid-row: span 2;
+      }
+      .gallery-item.wide {
+        grid-column: span 2;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        min-height: 220px;
+        transition:
+          transform 0.5s ease,
+          filter 0.4s;
+        filter: brightness(0.9);
+        cursor: zoom-in;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.06);
+        filter: brightness(1);
+      }
 
-  /* SLEEPING */
-  .sleeping {
-    background: var(--sand-light);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .sleeping-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    margin-top: 2rem;
-  }
-  .sleep-card {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    background: var(--white);
-    padding: 1.4rem 1.6rem;
-    border-radius: 2px;
-    border-left: 3px solid var(--sand-warm);
-  }
-  .sleep-card-icon { font-size: 1.4rem; }
-  .sleep-card-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); }
-  .sleep-card-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--dark);
-  }
-  .sleeping-imgs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .sleeping-imgs img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    border-radius: 2px;
-    transition: transform 0.4s;
-  }
-  .sleeping-imgs img:first-child {
-    grid-column: span 2;
-    aspect-ratio: 16/9;
-  }
-  .sleeping-imgs img:hover { transform: scale(1.02); }
+      /* SLEEPING */
+      .sleeping {
+        background: var(--sand-light);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .sleeping-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 2rem;
+      }
+      .sleep-card {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        background: var(--white);
+        padding: 1.4rem 1.6rem;
+        border-radius: 2px;
+        border-left: 3px solid var(--sand-warm);
+      }
+      .sleep-card-icon {
+        font-size: 1.4rem;
+      }
+      .sleep-card-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-light);
+      }
+      .sleep-card-value {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: var(--dark);
+      }
+      .sleeping-imgs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .sleeping-imgs img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border-radius: 2px;
+        transition: transform 0.4s;
+      }
+      .sleeping-imgs img:first-child {
+        grid-column: span 2;
+        aspect-ratio: 16/9;
+      }
+      .sleeping-imgs img:hover {
+        transform: scale(1.02);
+      }
 
-  /* REVIEWS */
-  .reviews { background: var(--white); }
-  .reviews-rating-bar {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin: 2rem 0 3.5rem;
-    padding: 2rem;
-    background: var(--sand-light);
-    border-radius: 2px;
-  }
-  .big-rating {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem;
-    font-weight: 300;
-    color: var(--dark);
-    line-height: 1;
-  }
-  .rating-detail { flex: 1; }
-  .rating-stars { font-size: 1.4rem; color: #f4c44a; margin-bottom: 0.3rem; }
-  .rating-count { font-size: 0.85rem; color: var(--text-light); font-weight: 300; }
-  .rating-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-  .rating-tag {
-    font-size: 0.78rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    color: var(--terra);
-    background: rgba(193, 127, 82, 0.12);
-    padding: 0.35rem 0.9rem;
-    border-radius: 20px;
-    border: 1px solid rgba(193,127,82,0.25);
-  }
-  .review-categories {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
-  }
-  .review-cat {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--sand-mid);
-  }
-  .review-cat-name { font-size: 0.9rem; color: var(--text-light); font-weight: 300; }
-  .review-cat-score {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--dark);
-  }
+      /* REVIEWS */
+      .reviews {
+        background: var(--white);
+      }
+      .reviews-rating-bar {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin: 2rem 0 3.5rem;
+        padding: 2rem;
+        background: var(--sand-light);
+        border-radius: 2px;
+      }
+      .big-rating {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 4rem;
+        font-weight: 300;
+        color: var(--dark);
+        line-height: 1;
+      }
+      .rating-detail {
+        flex: 1;
+      }
+      .rating-stars {
+        font-size: 1.4rem;
+        color: #f4c44a;
+        margin-bottom: 0.3rem;
+      }
+      .rating-count {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        font-weight: 300;
+      }
+      .rating-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .rating-tag {
+        font-size: 0.78rem;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        color: var(--terra);
+        background: rgba(193, 127, 82, 0.12);
+        padding: 0.35rem 0.9rem;
+        border-radius: 20px;
+        border: 1px solid rgba(193, 127, 82, 0.25);
+      }
+      .review-categories {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
+      .review-cat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--sand-mid);
+      }
+      .review-cat-name {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        font-weight: 300;
+      }
+      .review-cat-score {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--dark);
+      }
 
-  /* LOCATION */
-  .location { background: var(--sand-light); }
-  .location-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .location-map {
-    border-radius: 2px;
-    overflow: hidden;
-    box-shadow: 0 12px 40px rgba(44,31,20,0.15);
-  }
-  .location-map iframe {
-    width: 100%;
-    height: 380px;
-    border: none;
-    display: block;
-  }
-  .location-text p {
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--text-light);
-    line-height: 1.8;
-    margin-bottom: 1.2rem;
-  }
-  .location-points {
-    list-style: none;
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-  }
-  .location-points li {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: var(--text-light);
-  }
-  .location-points li span { color: var(--dusk); font-size: 1rem; }
+      /* LOCATION */
+      .location {
+        background: var(--sand-light);
+      }
+      .location-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .location-map {
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow: 0 12px 40px rgba(44, 31, 20, 0.15);
+      }
+      .location-map iframe {
+        width: 100%;
+        height: 380px;
+        border: none;
+        display: block;
+      }
+      .location-text p {
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 1.2rem;
+      }
+      .location-points {
+        list-style: none;
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      .location-points li {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: var(--text-light);
+      }
+      .location-points li span {
+        color: var(--dusk);
+        font-size: 1rem;
+      }
 
-  /* CTA */
-  .cta-section {
-    background: var(--dark);
-    text-align: center;
-    padding: 8rem 3rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('images/multiple-images-1.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.18;
-  }
-  .cta-inner { position: relative; }
-  .cta-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand-warm); margin-bottom: 1rem; }
-  .cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 300;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-  }
-  .cta-title em { font-style: italic; color: var(--sand-warm); }
-  .cta-sub {
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--sand-mid);
-    margin-bottom: 3rem;
-    letter-spacing: 0.05em;
-  }
-  .cta-btn {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--dark);
-    background: var(--sand-warm);
-    text-decoration: none;
-    padding: 1.1rem 3rem;
-    border-radius: 2px;
-    transition: background 0.3s, transform 0.2s;
-  }
-  .cta-btn:hover {
-    background: var(--white);
-    transform: translateY(-3px);
-  }
+      /* CTA */
+      .cta-section {
+        background: var(--dark);
+        text-align: center;
+        padding: 8rem 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("images/multiple-images-1.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.18;
+      }
+      .cta-inner {
+        position: relative;
+      }
+      .cta-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--sand-warm);
+        margin-bottom: 1rem;
+      }
+      .cta-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        font-weight: 300;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+      .cta-title em {
+        font-style: italic;
+        color: var(--sand-warm);
+      }
+      .cta-sub {
+        font-size: 0.95rem;
+        font-weight: 300;
+        color: var(--sand-mid);
+        margin-bottom: 3rem;
+        letter-spacing: 0.05em;
+      }
+      .cta-btn {
+        display: inline-block;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--dark);
+        background: var(--sand-warm);
+        text-decoration: none;
+        padding: 1.1rem 3rem;
+        border-radius: 2px;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+      }
+      .cta-btn:hover {
+        background: var(--white);
+        transform: translateY(-3px);
+      }
 
-  /* FOOTER */
-  footer {
-    background: var(--dark);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: var(--sand-mid);
-    letter-spacing: 0.08em;
-  }
-  .footer-text {
-    font-size: 0.78rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.06em;
-  }
-  .footer-right {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  .footer-link, .footer-tel {
-    font-size: 0.78rem;
-    font-weight: 400;
-    color: var(--sand-warm);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-  }
-  .footer-link:hover, .footer-tel:hover { color: var(--white); }
+      /* FOOTER */
+      footer {
+        background: var(--dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 2rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: var(--sand-mid);
+        letter-spacing: 0.08em;
+      }
+      .footer-text {
+        font-size: 0.78rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.06em;
+      }
+      .footer-right {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .footer-link,
+      .footer-tel {
+        font-size: 0.78rem;
+        font-weight: 400;
+        color: var(--sand-warm);
+        text-decoration: none;
+        letter-spacing: 0.08em;
+      }
+      .footer-link:hover,
+      .footer-tel:hover {
+        color: var(--white);
+      }
 
-  /* GALLERY BUTTON */
-  .gallery-footer {
-    padding: 2rem 3rem 0;
-    display: flex;
-    justify-content: center;
-  }
-  .gallery-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--dark);
-    background: var(--sand-warm);
-    border: none;
-    cursor: pointer;
-    padding: 0.9rem 2.2rem;
-    border-radius: 2px;
-    transition: background 0.3s, transform 0.2s;
-  }
-  .gallery-btn:hover { background: var(--sand-mid); transform: translateY(-2px); }
+      /* GALLERY BUTTON */
+      .gallery-footer {
+        padding: 2rem 3rem 0;
+        display: flex;
+        justify-content: center;
+      }
+      .gallery-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: "Jost", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--dark);
+        background: var(--sand-warm);
+        border: none;
+        cursor: pointer;
+        padding: 0.9rem 2.2rem;
+        border-radius: 2px;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+      }
+      .gallery-btn:hover {
+        background: var(--sand-mid);
+        transform: translateY(-2px);
+      }
 
-  /* MODAL */
-  .photo-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    background: rgba(20, 14, 8, 0.92);
-    backdrop-filter: blur(6px);
-    overflow-y: auto;
-    padding: 4rem 2rem 2rem;
-  }
-  .photo-modal.open { display: block; }
-  .modal-close {
-    position: fixed;
-    top: 1.2rem;
-    right: 1.5rem;
-    background: none;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--white);
-    font-size: 1.2rem;
-    line-height: 1;
-    cursor: pointer;
-    padding: 0.4rem 0.75rem;
-    border-radius: 2px;
-    transition: background 0.2s;
-    z-index: 201;
-  }
-  .modal-close:hover { background: rgba(255,255,255,0.15); }
-  .modal-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 300;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.04em;
-  }
-  .modal-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
-  .modal-grid img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-    border-radius: 2px;
-    transition: opacity 0.2s;
-    cursor: zoom-in;
-  }
-  .modal-grid img:hover { opacity: 0.88; }
-  @media (max-width: 700px) { .modal-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 420px) { .modal-grid { grid-template-columns: 1fr; } }
+      /* MODAL */
+      .photo-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background: rgba(20, 14, 8, 0.92);
+        backdrop-filter: blur(6px);
+        overflow-y: auto;
+        padding: 4rem 2rem 2rem;
+      }
+      .photo-modal.open {
+        display: block;
+      }
+      .modal-close {
+        position: fixed;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: var(--white);
+        font-size: 1.2rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0.4rem 0.75rem;
+        border-radius: 2px;
+        transition: background 0.2s;
+        z-index: 201;
+      }
+      .modal-close:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .modal-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.04em;
+      }
+      .modal-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .modal-grid img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        display: block;
+        border-radius: 2px;
+        transition: opacity 0.2s;
+        cursor: zoom-in;
+      }
+      .modal-grid img:hover {
+        opacity: 0.88;
+      }
+      @media (max-width: 700px) {
+        .modal-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 420px) {
+        .modal-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-  /* LIGHTBOX */
-  .lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 300;
-    background: rgba(0, 0, 0, 0.95);
-    align-items: center;
-    justify-content: center;
-  }
-  .lightbox.open { display: flex; }
-  .lightbox-img {
-    max-width: 92vw;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 2px;
-    user-select: none;
-  }
-  .lightbox-close {
-    position: fixed;
-    top: 1.2rem;
-    right: 1.5rem;
-    background: none;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--white);
-    font-size: 1.2rem;
-    line-height: 1;
-    cursor: pointer;
-    padding: 0.4rem 0.75rem;
-    border-radius: 2px;
-    transition: background 0.2s;
-    z-index: 301;
-  }
-  .lightbox-close:hover { background: rgba(255,255,255,0.15); }
-  .lightbox-nav {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--white);
-    font-size: 1.4rem;
-    line-height: 1;
-    cursor: pointer;
-    padding: 0.8rem 1rem;
-    border-radius: 2px;
-    transition: background 0.2s;
-    z-index: 301;
-  }
-  .lightbox-nav:hover { background: rgba(255,255,255,0.15); }
-  .lightbox-prev { left: 1.5rem; }
-  .lightbox-next { right: 1.5rem; }
-  .lightbox-counter {
-    position: fixed;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.5);
-  }
-  @media (max-width: 560px) {
-    .lightbox-nav { display: none; }
-  }
+      /* LIGHTBOX */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        background: rgba(0, 0, 0, 0.95);
+        align-items: center;
+        justify-content: center;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox-img {
+        max-width: 92vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 2px;
+        user-select: none;
+      }
+      .lightbox-close {
+        position: fixed;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: var(--white);
+        font-size: 1.2rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0.4rem 0.75rem;
+        border-radius: 2px;
+        transition: background 0.2s;
+        z-index: 301;
+      }
+      .lightbox-close:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .lightbox-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: var(--white);
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0.8rem 1rem;
+        border-radius: 2px;
+        transition: background 0.2s;
+        z-index: 301;
+      }
+      .lightbox-nav:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .lightbox-prev {
+        left: 1.5rem;
+      }
+      .lightbox-next {
+        right: 1.5rem;
+      }
+      .lightbox-counter {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      @media (max-width: 560px) {
+        .lightbox-nav {
+          display: none;
+        }
+      }
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
-    .nav-cta { padding: 0.7rem 1.4rem; }
-    .lang-toggle { padding: 0.55rem 0.85rem; }
-    .scroll-top { width: 2.9rem; height: 2.9rem; bottom: 1.5rem; right: 1.5rem; }
-    .hero-content { padding: 0 1.5rem 4rem; }
-    section { padding: 4rem 1.5rem; }
-    .about, .sleeping, .location-inner {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-    .about-img { aspect-ratio: 4/3; }
-    .highlights-grid { grid-template-columns: 1fr 1fr; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
-    .gallery-item.wide { grid-column: span 2; }
-    .gallery-header { padding: 0 1.5rem; }
-    .gallery-footer { padding: 2rem 1.5rem 0; }
-    .review-categories { grid-template-columns: 1fr 1fr; }
-    .sleeping-imgs img:first-child { aspect-ratio: 4/3; }
-    footer { flex-direction: column; gap: 0.8rem; text-align: center; }
-    .footer-right { justify-content: center; }
-    .scroll-hint { display: none; }
-  }
-  @media (max-width: 560px) {
-    .highlights-grid { grid-template-columns: 1fr; }
-    .review-categories { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item.wide, .gallery-item.tall { grid-column: span 1; grid-row: span 1; }
-    .reviews-rating-bar { flex-direction: column; text-align: center; }
-  }
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        nav {
+          padding: 1.2rem 1.5rem;
+        }
+        .nav-cta {
+          padding: 0.7rem 1.4rem;
+        }
+        .lang-toggle {
+          padding: 0.55rem 0.85rem;
+        }
+        .scroll-top {
+          width: 2.9rem;
+          height: 2.9rem;
+          bottom: 1.5rem;
+          right: 1.5rem;
+        }
+        .hero-content {
+          padding: 0 1.5rem 4rem;
+        }
+        section {
+          padding: 4rem 1.5rem;
+        }
+        .about,
+        .sleeping,
+        .location-inner {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .about-img {
+          aspect-ratio: 4/3;
+        }
+        .highlights-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .gallery-item.wide {
+          grid-column: span 2;
+        }
+        .gallery-header {
+          padding: 0 1.5rem;
+        }
+        .gallery-footer {
+          padding: 2rem 1.5rem 0;
+        }
+        .review-categories {
+          grid-template-columns: 1fr 1fr;
+        }
+        .sleeping-imgs img:first-child {
+          aspect-ratio: 4/3;
+        }
+        footer {
+          flex-direction: column;
+          gap: 0.8rem;
+          text-align: center;
+        }
+        .footer-right {
+          justify-content: center;
+        }
+        .scroll-hint {
+          display: none;
+        }
+      }
+      @media (max-width: 560px) {
+        .highlights-grid {
+          grid-template-columns: 1fr;
+        }
+        .review-categories {
+          grid-template-columns: 1fr;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-item.wide,
+        .gallery-item.tall {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+        .reviews-rating-bar {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
 
-  /* SCROLL TO TOP */
-  .scroll-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 90;
-    width: 2.4rem;
-    height: 2.4rem;
-    background: var(--terra);
-    color: var(--white);
-    border: none;
-    border-radius: 2px;
-    font-size: 1rem;
-    line-height: 1;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s, background 0.3s, transform 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .scroll-top.visible { opacity: 1; pointer-events: auto; }
-  .scroll-top:hover { background: var(--dusk); transform: translateY(-2px); }
+      /* SCROLL TO TOP */
+      .scroll-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 90;
+        width: 2.4rem;
+        height: 2.4rem;
+        background: var(--terra);
+        color: var(--white);
+        border: none;
+        border-radius: 2px;
+        font-size: 1rem;
+        line-height: 1;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.3s,
+          background 0.3s,
+          transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .scroll-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .scroll-top:hover {
+        background: var(--dusk);
+        transform: translateY(-2px);
+      }
 
-  /* BOOKING FORM */
-  .booking { background: var(--sand-light); }
-  .booking-form {
-    max-width: 640px;
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
-  }
-  .booking-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1.2rem;
-  }
-  .booking-field { display: flex; flex-direction: column; gap: 0.4rem; }
-  .booking-field label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-light);
-  }
-  .booking-field input,
-  .booking-field select,
-  .booking-field textarea {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.95rem;
-    padding: 0.75rem 0.9rem;
-    border: 1px solid var(--sand-warm);
-    border-radius: 2px;
-    background: var(--white);
-    color: var(--text);
-  }
-  .booking-field textarea { resize: vertical; }
-  .booking-field input:focus,
-  .booking-field select:focus,
-  .booking-field textarea:focus {
-    outline: none;
-    border-color: var(--dusk);
-  }
-  .booking-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-  }
-  .booking-btn {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    padding: 0.9rem 1.8rem;
-    border-radius: 2px;
-    transition: background 0.3s, transform 0.2s;
-  }
-  .booking-btn.submit { background: var(--terra); color: #fff; }
-  .booking-btn.submit:hover { background: var(--dark); transform: translateY(-2px); }
-  .booking-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
-  .booking-note {
-    font-size: 0.8rem;
-    font-weight: 300;
-    color: var(--text-light);
-    margin-top: 0.3rem;
-  }
-  /* BOOKING MODAL */
-  .booking-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 400;
-    background: rgba(20, 14, 8, 0.75);
-    backdrop-filter: blur(6px);
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-  }
-  .booking-modal.open { display: flex; }
-  .booking-modal-card {
-    position: relative;
-    background: var(--white);
-    max-width: 420px;
-    width: 100%;
-    padding: 2.6rem 2.2rem 2.2rem;
-    border-radius: 2px;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-    animation: heroFadeUp 0.3s ease-out both;
-  }
-  .booking-modal-icon {
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
-    color: var(--dusk);
-  }
-  .booking-modal-card.error .booking-modal-icon { color: #b3261e; }
-  .booking-modal-text {
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--text);
-    line-height: 1.6;
-  }
-  .booking-modal-close {
-    position: absolute;
-    top: 0.8rem;
-    right: 0.8rem;
-    background: none;
-    border: 1px solid var(--sand-warm);
-    color: var(--text-light);
-    font-size: 1rem;
-    line-height: 1;
-    cursor: pointer;
-    padding: 0.4rem 0.7rem;
-    border-radius: 2px;
-    transition: background 0.2s;
-  }
-  .booking-modal-close:hover { background: var(--sand-light); }
+      /* BOOKING FORM */
+      .booking {
+        background: var(--sand-light);
+      }
+      .booking-form {
+        max-width: 640px;
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+      }
+      .booking-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1.2rem;
+      }
+      .booking-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .booking-field label {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-light);
+      }
+      .booking-field input,
+      .booking-field select,
+      .booking-field textarea {
+        font-family: "Jost", sans-serif;
+        font-size: 0.95rem;
+        padding: 0.75rem 0.9rem;
+        border: 1px solid var(--sand-warm);
+        border-radius: 2px;
+        background: var(--white);
+        color: var(--text);
+      }
+      .booking-field textarea {
+        resize: vertical;
+      }
+      .booking-field input:focus,
+      .booking-field select:focus,
+      .booking-field textarea:focus {
+        outline: none;
+        border-color: var(--dusk);
+      }
+      .booking-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+      .booking-btn {
+        font-family: "Jost", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        padding: 0.9rem 1.8rem;
+        border-radius: 2px;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+      }
+      .booking-btn.submit {
+        background: var(--terra);
+        color: #fff;
+      }
+      .booking-btn.submit:hover {
+        background: var(--dark);
+        transform: translateY(-2px);
+      }
+      .booking-btn:disabled {
+        opacity: 0.6;
+        cursor: default;
+        transform: none;
+      }
+      .booking-note {
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: var(--text-light);
+        margin-top: 0.3rem;
+      }
+      /* BOOKING MODAL */
+      .booking-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 400;
+        background: rgba(20, 14, 8, 0.75);
+        backdrop-filter: blur(6px);
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+      .booking-modal.open {
+        display: flex;
+      }
+      .booking-modal-card {
+        position: relative;
+        background: var(--white);
+        max-width: 420px;
+        width: 100%;
+        padding: 2.6rem 2.2rem 2.2rem;
+        border-radius: 2px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        animation: heroFadeUp 0.3s ease-out both;
+      }
+      .booking-modal-icon {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+        color: var(--dusk);
+      }
+      .booking-modal-card.error .booking-modal-icon {
+        color: #b3261e;
+      }
+      .booking-modal-text {
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .booking-modal-close {
+        position: absolute;
+        top: 0.8rem;
+        right: 0.8rem;
+        background: none;
+        border: 1px solid var(--sand-warm);
+        color: var(--text-light);
+        font-size: 1rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0.4rem 0.7rem;
+        border-radius: 2px;
+        transition: background 0.2s;
+      }
+      .booking-modal-close:hover {
+        background: var(--sand-light);
+      }
 
-  /* LANG TOGGLE */
-  .lang-toggle {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.75);
-    background: none;
-    border: 1px solid rgba(255,255,255,0.35);
-    padding: 0.3rem 0.65rem;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  nav.scrolled .lang-toggle {
-    color: var(--text-light);
-    border-color: var(--sand-deep);
-  }
-  .lang-toggle:hover { background: rgba(255,255,255,0.12); }
-  nav.scrolled .lang-toggle:hover { background: var(--sand-mid); }
-  .nav-right { display: flex; align-items: center; gap: 0.6rem; }
-</style>
-</head>
-<body>
+      /* LANG TOGGLE */
+      .lang-toggle {
+        font-family: "Jost", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.75);
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        padding: 0.3rem 0.65rem;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      nav.scrolled .lang-toggle {
+        color: var(--text-light);
+        border-color: var(--sand-deep);
+      }
+      .lang-toggle:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      nav.scrolled .lang-toggle:hover {
+        background: var(--sand-mid);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
 
-<!-- NAV -->
-<nav id="navbar">
-  <span class="nav-logo">Sunset View</span>
-  <div class="nav-right">
-    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">GR</button>
-    <a class="nav-cta" href="#booking">Request to Book</a>
-  </div>
-</nav>
+      /* FLATPICKR THEME */
+      .flatpickr-calendar {
+        font-family: "Jost", sans-serif;
+        box-shadow: 0 10px 30px rgba(44, 31, 20, 0.15);
+        border-radius: 4px;
+      }
+      .flatpickr-day.selected,
+      .flatpickr-day.selected:hover {
+        background: var(--dusk);
+        border-color: var(--dusk);
+      }
+      .flatpickr-day.today {
+        border-color: var(--dusk);
+      }
+      .flatpickr-day.flatpickr-disabled,
+      .flatpickr-day.flatpickr-disabled:hover {
+        color: var(--sand-warm);
+        text-decoration: line-through;
+      }
+      .flatpickr-months .flatpickr-month,
+      .flatpickr-current-month .flatpickr-monthDropdown-months,
+      span.flatpickr-weekday {
+        color: var(--text);
+      }
+      .flatpickr-day:hover {
+        background: var(--sand-mid);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav id="navbar">
+      <span class="nav-logo">Sunset View</span>
+      <div class="nav-right">
+        <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
+          GR
+        </button>
+        <a class="nav-cta" href="#booking">Request to Book</a>
+      </div>
+    </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Paralia Ofryniou · Greece</p>
-    <h1 class="hero-title">Sunset<br><em>View</em></h1>
-    <p class="hero-sub">A beachfront escape with astonishing views of the Greek sea</p>
-    <div class="hero-rating">
-      <span class="stars">★★★★★</span>
-      <span>4.89 · 18 reviews</span>
-    </div>
-    <a href="#booking" class="hero-btn">Reserve Your Stay</a>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
-</header>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Paralia Ofryniou · Greece</p>
+        <h1 class="hero-title">Sunset<br /><em>View</em></h1>
+        <p class="hero-sub">
+          A beachfront escape with astonishing views of the Greek sea
+        </p>
+        <div class="hero-rating">
+          <span class="stars">★★★★★</span>
+          <span>4.89 · 18 reviews</span>
+        </div>
+        <a href="#booking" class="hero-btn">Reserve Your Stay</a>
+      </div>
+      <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </header>
 
-<!-- ABOUT -->
-<section class="about">
-  <div class="about-text">
-    <p class="section-label">About the Space</p>
-    <h2 class="section-title">A place to <em>breathe</em> in Greece</h2>
-    <p>Brand new and thoughtfully appointed, Sunset View is a quiet retreat on the second floor of a two-storey building in Paralia Ofryniou - steps from the sea, yet close to the heart of the village.</p>
-    <p>The apartment comfortably sleeps up to five guests, making it perfect for families or small groups seeking an authentic Greek seaside escape. Wake up to the shimmering Aegean, enjoy your morning coffee on the terrace, and let the rhythm of the sea set the pace for your day.</p>
-  </div>
-  <div class="about-img">
-    <img src="images/multiple-images-2.jpg" alt="Sunset View apartment exterior" loading="lazy">
-  </div>
-</section>
+    <!-- ABOUT -->
+    <section class="about">
+      <div class="about-text">
+        <p class="section-label">About the Space</p>
+        <h2 class="section-title">A place to <em>breathe</em> in Greece</h2>
+        <p>
+          Brand new and thoughtfully appointed, Sunset View is a quiet retreat
+          on the second floor of a two-storey building in Paralia Ofryniou -
+          steps from the sea, yet close to the heart of the village.
+        </p>
+        <p>
+          The apartment comfortably sleeps up to five guests, making it perfect
+          for families or small groups seeking an authentic Greek seaside
+          escape. Wake up to the shimmering Aegean, enjoy your morning coffee on
+          the terrace, and let the rhythm of the sea set the pace for your day.
+        </p>
+      </div>
+      <div class="about-img">
+        <img
+          src="images/multiple-images-2.jpg"
+          alt="Sunset View apartment exterior"
+          loading="lazy"
+        />
+      </div>
+    </section>
 
-<!-- HIGHLIGHTS -->
-<section class="highlights">
-  <p class="section-label">Why Guests Love It</p>
-  <h2 class="section-title">Everything you <em>need</em></h2>
-  <div class="highlights-grid">
-    <div class="highlight-card">
-      <div class="highlight-icon">🏖️</div>
-      <div class="highlight-title">Beachfront Access</div>
-      <div class="highlight-desc">Direct access to the beach - the sea is practically your backyard.</div>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">🌅</div>
-      <div class="highlight-title">Astonishing Views</div>
-      <div class="highlight-desc">Floor-to-ceiling views of the Aegean that guests rave about.</div>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">🚗</div>
-      <div class="highlight-title">Free Parking</div>
-      <div class="highlight-desc">One of the few spots in the area with free on-premises parking.</div>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">🍽️</div>
-      <div class="highlight-title">Great Restaurants</div>
-      <div class="highlight-desc">Excellent dining options are just a short stroll away.</div>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">🔑</div>
-      <div class="highlight-title">Self Check-In</div>
-      <div class="highlight-desc">Arrive on your own schedule - easy lockbox access awaits.</div>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">📶</div>
-      <div class="highlight-title">Full Amenities</div>
-      <div class="highlight-desc">Kitchen, WiFi, Smart TV - everything for a comfortable stay.</div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery">
-  <div class="gallery-header">
-    <p class="section-label">Gallery</p>
-    <h2 class="section-title">See the <em>space</em></h2>
-  </div>
-  <div class="gallery-grid">
-    <div class="gallery-item tall">
-      <img src="images/dining-room-1.jpg" alt="Dining area" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="images/view.jpg" alt="Panoramic sea view from the apartment terrace" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="images/view-2.jpg" alt="Sea view from the balcony" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="images/living-room-tv-2.jpeg" alt="Living room with smart TV" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="images/bedroom-1.jpg" alt="Double bedroom" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="images/kitchen-1.jpg" alt="Fully equipped kitchen" loading="lazy">
-    </div>
-  </div>
-  <div class="gallery-footer">
-    <button class="gallery-btn" onclick="openPhotoModal()">⊞ Show all 25 photos</button>
-  </div>
-</section>
-
-<!-- SLEEPING -->
-<section class="sleeping">
-  <div>
-    <p class="section-label">Sleeping Arrangements</p>
-    <h2 class="section-title">Sleeps up to <em>5 guests</em></h2>
-    <div class="sleeping-cards">
-      <div class="sleep-card">
-        <div class="sleep-card-icon">🛏️</div>
-        <div>
-          <div class="sleep-card-label">Bedroom</div>
-          <div class="sleep-card-value">1 comfortable double bed</div>
+    <!-- HIGHLIGHTS -->
+    <section class="highlights">
+      <p class="section-label">Why Guests Love It</p>
+      <h2 class="section-title">Everything you <em>need</em></h2>
+      <div class="highlights-grid">
+        <div class="highlight-card">
+          <div class="highlight-icon">🏖️</div>
+          <div class="highlight-title">Beachfront Access</div>
+          <div class="highlight-desc">
+            Direct access to the beach - the sea is practically your backyard.
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🌅</div>
+          <div class="highlight-title">Astonishing Views</div>
+          <div class="highlight-desc">
+            Floor-to-ceiling views of the Aegean that guests rave about.
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🚗</div>
+          <div class="highlight-title">Free Parking</div>
+          <div class="highlight-desc">
+            One of the few spots in the area with free on-premises parking.
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🍽️</div>
+          <div class="highlight-title">Great Restaurants</div>
+          <div class="highlight-desc">
+            Excellent dining options are just a short stroll away.
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🔑</div>
+          <div class="highlight-title">Self Check-In</div>
+          <div class="highlight-desc">
+            Arrive on your own schedule - easy lockbox access awaits.
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">📶</div>
+          <div class="highlight-title">Full Amenities</div>
+          <div class="highlight-desc">
+            Kitchen, WiFi, Smart TV - everything for a comfortable stay.
+          </div>
         </div>
       </div>
-      <div class="sleep-card">
-        <div class="sleep-card-icon">🛋️</div>
-        <div>
-          <div class="sleep-card-label">Living Room</div>
-          <div class="sleep-card-value">1 sofa bed + 1 built-in couch</div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+      <div class="gallery-header">
+        <p class="section-label">Gallery</p>
+        <h2 class="section-title">See the <em>space</em></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item tall">
+          <img
+            src="images/dining-room-1.jpg"
+            alt="Dining area"
+            loading="lazy"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="images/view.jpg"
+            alt="Panoramic sea view from the apartment terrace"
+            loading="lazy"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="images/view-2.jpg"
+            alt="Sea view from the balcony"
+            loading="lazy"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="images/living-room-tv-2.jpeg"
+            alt="Living room with smart TV"
+            loading="lazy"
+          />
+        </div>
+        <div class="gallery-item">
+          <img src="images/bedroom-1.jpg" alt="Double bedroom" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="images/kitchen-1.jpg"
+            alt="Fully equipped kitchen"
+            loading="lazy"
+          />
         </div>
       </div>
-      <div class="sleep-card">
-        <div class="sleep-card-icon">🚿</div>
-        <div>
-          <div class="sleep-card-label">Bathroom</div>
-          <div class="sleep-card-value">1 private full bathroom</div>
+      <div class="gallery-footer">
+        <button class="gallery-btn" onclick="openPhotoModal()">
+          ⊞ Show all 25 photos
+        </button>
+      </div>
+    </section>
+
+    <!-- SLEEPING -->
+    <section class="sleeping">
+      <div>
+        <p class="section-label">Sleeping Arrangements</p>
+        <h2 class="section-title">Sleeps up to <em>5 guests</em></h2>
+        <div class="sleeping-cards">
+          <div class="sleep-card">
+            <div class="sleep-card-icon">🛏️</div>
+            <div>
+              <div class="sleep-card-label">Bedroom</div>
+              <div class="sleep-card-value">1 comfortable double bed</div>
+            </div>
+          </div>
+          <div class="sleep-card">
+            <div class="sleep-card-icon">🛋️</div>
+            <div>
+              <div class="sleep-card-label">Living Room</div>
+              <div class="sleep-card-value">1 sofa bed + 1 built-in couch</div>
+            </div>
+          </div>
+          <div class="sleep-card">
+            <div class="sleep-card-icon">🚿</div>
+            <div>
+              <div class="sleep-card-label">Bathroom</div>
+              <div class="sleep-card-value">1 private full bathroom</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="sleeping-imgs">
-    <img src="images/bedroom-2.jpg" alt="Bedroom" loading="lazy">
-    <img src="images/living-room-1.jpg" alt="Living room" loading="lazy">
-    <img src="images/build-couch.jpg" alt="Built-in couch" loading="lazy" style="object-position: bottom;">
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews">
-  <p class="section-label">Guest Reviews</p>
-  <h2 class="section-title">What guests <em>say</em></h2>
-  <div class="reviews-rating-bar">
-    <div class="big-rating">4.89</div>
-    <div class="rating-detail">
-      <div class="rating-stars">★★★★★</div>
-      <div class="rating-count">18 reviews</div>
-    </div>
-    <div class="rating-tags">
-      <span class="rating-tag">🌊 Beach</span>
-      <span class="rating-tag">📍 Location</span>
-      <span class="rating-tag">🤝 Hospitality</span>
-      <span class="rating-tag">🌅 View</span>
-      <span class="rating-tag">🤫 Quiet</span>
-      <span class="rating-tag">✨ Cleanliness</span>
-    </div>
-  </div>
-  <div class="review-categories">
-    <div class="review-cat"><span class="review-cat-name">Cleanliness</span><span class="review-cat-score">4.9</span></div>
-    <div class="review-cat"><span class="review-cat-name">Accuracy</span><span class="review-cat-score">4.9</span></div>
-    <div class="review-cat"><span class="review-cat-name">Check-in</span><span class="review-cat-score">5.0</span></div>
-    <div class="review-cat"><span class="review-cat-name">Communication</span><span class="review-cat-score">5.0</span></div>
-    <div class="review-cat"><span class="review-cat-name">Location</span><span class="review-cat-score">5.0</span></div>
-    <div class="review-cat"><span class="review-cat-name">Value</span><span class="review-cat-score">5.0</span></div>
-  </div>
-</section>
-
-<!-- LOCATION -->
-<section class="location">
-  <div class="location-inner">
-    <div>
-      <p class="section-label">Where You'll Be</p>
-      <h2 class="section-title">Paralia <em>Ofryniou</em></h2>
-      <p>A charming seaside village in the Kavala regional unit of northern Greece. Peaceful, authentic, and blessed with clear blue waters - exactly what a Greek summer should feel like.</p>
-      <p>The apartment sits in a quiet area while still being walking distance from the village center, tavernas, and the beach.</p>
-      <ul class="location-points">
-        <li><span>🌊</span> Steps from the beach</li>
-        <li><span>🍷</span> Local tavernas & restaurants nearby</li>
-        <li><span>🛒</span> Village center within walking distance</li>
-        <li><span>🚗</span> Free parking on premises</li>
-      </ul>
-    </div>
-    <div class="location-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.2!2d23.8988978!3d40.7668156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a92553be518d41%3A0xb5fd1a71edf68746!2sSunset%20view!5e0!3m2!1sen!2s!4v1"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Map of Paralia Ofryniou">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- BOOKING -->
-<section class="booking" id="booking">
-  <p class="section-label">Request to Book</p>
-  <h2 class="section-title">Plan your <em>stay</em></h2>
-  <form class="booking-form" id="bookingForm">
-    <div class="booking-row">
-      <div class="booking-field">
-        <label for="checkin">Check-in</label>
-        <input type="date" id="checkin" name="checkin" required>
+      <div class="sleeping-imgs">
+        <img src="images/bedroom-2.jpg" alt="Bedroom" loading="lazy" />
+        <img src="images/living-room-1.jpg" alt="Living room" loading="lazy" />
+        <img
+          src="images/build-couch.jpg"
+          alt="Built-in couch"
+          loading="lazy"
+          style="object-position: bottom"
+        />
       </div>
-      <div class="booking-field">
-        <label for="checkout">Check-out</label>
-        <input type="date" id="checkout" name="checkout" required>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews">
+      <p class="section-label">Guest Reviews</p>
+      <h2 class="section-title">What guests <em>say</em></h2>
+      <div class="reviews-rating-bar">
+        <div class="big-rating">4.89</div>
+        <div class="rating-detail">
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-count">18 reviews</div>
+        </div>
+        <div class="rating-tags">
+          <span class="rating-tag">🌊 Beach</span>
+          <span class="rating-tag">📍 Location</span>
+          <span class="rating-tag">🤝 Hospitality</span>
+          <span class="rating-tag">🌅 View</span>
+          <span class="rating-tag">🤫 Quiet</span>
+          <span class="rating-tag">✨ Cleanliness</span>
+        </div>
       </div>
-      <div class="booking-field">
-        <label for="guests">Guests</label>
-        <select id="guests" name="guests" required>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+      <div class="review-categories">
+        <div class="review-cat">
+          <span class="review-cat-name">Cleanliness</span
+          ><span class="review-cat-score">4.9</span>
+        </div>
+        <div class="review-cat">
+          <span class="review-cat-name">Accuracy</span
+          ><span class="review-cat-score">4.9</span>
+        </div>
+        <div class="review-cat">
+          <span class="review-cat-name">Check-in</span
+          ><span class="review-cat-score">5.0</span>
+        </div>
+        <div class="review-cat">
+          <span class="review-cat-name">Communication</span
+          ><span class="review-cat-score">5.0</span>
+        </div>
+        <div class="review-cat">
+          <span class="review-cat-name">Location</span
+          ><span class="review-cat-score">5.0</span>
+        </div>
+        <div class="review-cat">
+          <span class="review-cat-name">Value</span
+          ><span class="review-cat-score">5.0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location">
+      <div class="location-inner">
+        <div>
+          <p class="section-label">Where You'll Be</p>
+          <h2 class="section-title">Paralia <em>Ofryniou</em></h2>
+          <p>
+            A charming seaside village in the Kavala regional unit of northern
+            Greece. Peaceful, authentic, and blessed with clear blue waters -
+            exactly what a Greek summer should feel like.
+          </p>
+          <p>
+            The apartment sits in a quiet area while still being walking
+            distance from the village center, tavernas, and the beach.
+          </p>
+          <ul class="location-points">
+            <li><span>🌊</span> Steps from the beach</li>
+            <li><span>🍷</span> Local tavernas & restaurants nearby</li>
+            <li><span>🛒</span> Village center within walking distance</li>
+            <li><span>🚗</span> Free parking on premises</li>
+          </ul>
+        </div>
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.2!2d23.8988978!3d40.7668156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a92553be518d41%3A0xb5fd1a71edf68746!2sSunset%20view!5e0!3m2!1sen!2s!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map of Paralia Ofryniou"
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking" id="booking">
+      <p class="section-label">Request to Book</p>
+      <h2 class="section-title">Plan your <em>stay</em></h2>
+      <form class="booking-form" id="bookingForm">
+        <div class="booking-row">
+          <div class="booking-field">
+            <label for="checkin">Check-in</label>
+            <input
+              type="text"
+              id="checkin"
+              name="checkin"
+              readonly
+              required
+            />
+          </div>
+          <div class="booking-field">
+            <label for="checkout">Check-out</label>
+            <input
+              type="text"
+              id="checkout"
+              name="checkout"
+              readonly
+              required
+            />
+          </div>
+          <div class="booking-field">
+            <label for="guests">Guests</label>
+            <select id="guests" name="guests" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+        <div class="booking-row">
+          <div class="booking-field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="booking-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+        </div>
+        <div class="booking-field">
+          <label for="message">Message (optional)</label>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </div>
+        <div class="booking-actions">
+          <button type="button" class="booking-btn submit" id="btnSubmit">
+            Send Booking Request
+          </button>
+        </div>
+        <p class="booking-note">
+          No online payment - we'll confirm availability and details directly
+          with you.
+        </p>
+      </form>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="cta-inner">
+        <p class="cta-label">Ready to escape?</p>
+        <h2 class="cta-title">Your Greek summer<br /><em>awaits</em></h2>
+        <p class="cta-sub">
+          Self check-in · Free parking · Beachfront · Direct booking
+        </p>
+        <a href="#booking" class="cta-btn">Request to Book</a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span class="footer-logo">Sunset View</span>
+      <span class="footer-text"
+        >Paralia Ofryniou, Greece · Hosted by Eleni</span
+      >
+      <div class="footer-right">
+        <a class="footer-tel" href="tel:+306974660309">+30 697 466 0309</a>
+        <a class="footer-link" href="#booking">Request a Booking ↗</a>
+      </div>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <button
+      class="scroll-top"
+      id="scrollTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Scroll to top"
+    >
+      ↑
+    </button>
+
+    <!-- BOOKING MODAL -->
+    <div
+      class="booking-modal"
+      id="bookingModal"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="booking-modal-card" id="bookingModalCard">
+        <button
+          class="booking-modal-close"
+          id="bookingModalClose"
+          aria-label="Close"
+        >
+          ✕
+        </button>
+        <div class="booking-modal-icon" id="bookingModalIcon"></div>
+        <p class="booking-modal-text" id="bookingModalText"></p>
       </div>
     </div>
-    <div class="booking-row">
-      <div class="booking-field">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+      <button
+        class="lightbox-close"
+        onclick="closeLightbox()"
+        aria-label="Close"
+      >
+        ✕
+      </button>
+      <button
+        class="lightbox-nav lightbox-prev"
+        onclick="lightboxNav(-1)"
+        aria-label="Previous"
+      >
+        ‹
+      </button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+      <button
+        class="lightbox-nav lightbox-next"
+        onclick="lightboxNav(1)"
+        aria-label="Next"
+      >
+        ›
+      </button>
+      <span class="lightbox-counter" id="lightboxCounter"></span>
+    </div>
+
+    <!-- PHOTO MODAL -->
+    <div
+      class="photo-modal"
+      id="photoModal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="All photos"
+    >
+      <button
+        class="modal-close"
+        onclick="closePhotoModal()"
+        aria-label="Close"
+      >
+        ✕
+      </button>
+      <p class="modal-title">All photos · Sunset View</p>
+      <div class="modal-grid">
+        <img
+          src="images/view.jpg"
+          alt="Panoramic sea view from the apartment terrace"
+          loading="lazy"
+        />
+        <img
+          src="images/view-2.jpg"
+          alt="Sea view from the balcony"
+          loading="lazy"
+        />
+        <img
+          src="images/exterior.jpg"
+          alt="Exterior of the building"
+          loading="lazy"
+        />
+        <img
+          src="images/multiple-images-1.jpg"
+          alt="Golden sunset over the Aegean sea"
+          loading="lazy"
+        />
+        <img
+          src="images/multiple-images-2.jpg"
+          alt="Beachfront surroundings"
+          loading="lazy"
+        />
+        <img
+          src="images/multiple-images-3.jpg"
+          alt="Property surroundings"
+          loading="lazy"
+        />
+        <img
+          src="images/living-room-1.jpg"
+          alt="Bright open-plan living area"
+          loading="lazy"
+        />
+        <img
+          src="images/living-room-tv.jpg"
+          alt="Living area with Smart TV"
+          loading="lazy"
+        />
+        <img
+          src="images/living-room-tv-2.jpeg"
+          alt="Spacious living room"
+          loading="lazy"
+        />
+        <img
+          src="images/build-couch.jpg"
+          alt="Built-in couch in living area"
+          loading="lazy"
+          style="object-position: bottom"
+        />
+        <img src="images/bedroom-1.jpg" alt="Double bedroom" loading="lazy" />
+        <img
+          src="images/bedroom-2.jpg"
+          alt="Bedroom with natural light"
+          loading="lazy"
+        />
+        <img
+          src="images/bedroom-3.jpeg"
+          alt="Comfortable bedroom"
+          loading="lazy"
+        />
+        <img src="images/bedroom-4.jpeg" alt="Bedroom detail" loading="lazy" />
+        <img src="images/bedroom-5.jpg" alt="Bedroom" loading="lazy" />
+        <img src="images/bedroom-6.jpg" alt="Bedroom" loading="lazy" />
+        <img src="images/bedroom-7.jpg" alt="Bedroom" loading="lazy" />
+        <img src="images/bedroom-8.jpg" alt="Bedroom" loading="lazy" />
+        <img
+          src="images/kitchen-1.jpg"
+          alt="Fully equipped kitchen"
+          loading="lazy"
+        />
+        <img src="images/kitchen-2.jpg" alt="Kitchen detail" loading="lazy" />
+        <img src="images/dining-room-1.jpg" alt="Dining area" loading="lazy" />
+        <img src="images/dining-room-2.jpg" alt="Dining room" loading="lazy" />
+        <img
+          src="images/bathroom-1.jpg"
+          alt="Private bathroom"
+          loading="lazy"
+        />
+        <img src="images/bathroom-2.jpg" alt="Bathroom" loading="lazy" />
+        <img src="images/bathroom-3.jpg" alt="Bathroom detail" loading="lazy" />
       </div>
-      <div class="booking-field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
     </div>
-    <div class="booking-field">
-      <label for="message">Message (optional)</label>
-      <textarea id="message" name="message" rows="3"></textarea>
-    </div>
-    <div class="booking-actions">
-      <button type="button" class="booking-btn submit" id="btnSubmit">Send Booking Request</button>
-    </div>
-    <p class="booking-note">No online payment - we'll confirm availability and details directly with you.</p>
-  </form>
-</section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <p class="cta-label">Ready to escape?</p>
-    <h2 class="cta-title">Your Greek summer<br><em>awaits</em></h2>
-    <p class="cta-sub">Self check-in · Free parking · Beachfront · Direct booking</p>
-    <a href="#booking" class="cta-btn">Request to Book</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">Sunset View</span>
-  <span class="footer-text">Paralia Ofryniou, Greece · Hosted by Eleni</span>
-  <div class="footer-right">
-    <a class="footer-tel" href="tel:+306974660309">+30 697 466 0309</a>
-    <a class="footer-link" href="#booking">Request a Booking ↗</a>
-  </div>
-</footer>
-
-<!-- SCROLL TO TOP -->
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
-
-<!-- BOOKING MODAL -->
-<div class="booking-modal" id="bookingModal" role="dialog" aria-modal="true">
-  <div class="booking-modal-card" id="bookingModalCard">
-    <button class="booking-modal-close" id="bookingModalClose" aria-label="Close">✕</button>
-    <div class="booking-modal-icon" id="bookingModalIcon"></div>
-    <p class="booking-modal-text" id="bookingModalText"></p>
-  </div>
-</div>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
-  <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)" aria-label="Previous">‹</button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
-  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)" aria-label="Next">›</button>
-  <span class="lightbox-counter" id="lightboxCounter"></span>
-</div>
-
-<!-- PHOTO MODAL -->
-<div class="photo-modal" id="photoModal" role="dialog" aria-modal="true" aria-label="All photos">
-  <button class="modal-close" onclick="closePhotoModal()" aria-label="Close">✕</button>
-  <p class="modal-title">All photos · Sunset View</p>
-  <div class="modal-grid">
-    <img src="images/view.jpg" alt="Panoramic sea view from the apartment terrace" loading="lazy">
-    <img src="images/view-2.jpg" alt="Sea view from the balcony" loading="lazy">
-    <img src="images/exterior.jpg" alt="Exterior of the building" loading="lazy">
-    <img src="images/multiple-images-1.jpg" alt="Golden sunset over the Aegean sea" loading="lazy">
-    <img src="images/multiple-images-2.jpg" alt="Beachfront surroundings" loading="lazy">
-    <img src="images/multiple-images-3.jpg" alt="Property surroundings" loading="lazy">
-    <img src="images/living-room-1.jpg" alt="Bright open-plan living area" loading="lazy">
-    <img src="images/living-room-tv.jpg" alt="Living area with Smart TV" loading="lazy">
-    <img src="images/living-room-tv-2.jpeg" alt="Spacious living room" loading="lazy">
-    <img src="images/build-couch.jpg" alt="Built-in couch in living area" loading="lazy" style="object-position: bottom;">
-    <img src="images/bedroom-1.jpg" alt="Double bedroom" loading="lazy">
-    <img src="images/bedroom-2.jpg" alt="Bedroom with natural light" loading="lazy">
-    <img src="images/bedroom-3.jpeg" alt="Comfortable bedroom" loading="lazy">
-    <img src="images/bedroom-4.jpeg" alt="Bedroom detail" loading="lazy">
-    <img src="images/bedroom-5.jpg" alt="Bedroom" loading="lazy">
-    <img src="images/bedroom-6.jpg" alt="Bedroom" loading="lazy">
-    <img src="images/bedroom-7.jpg" alt="Bedroom" loading="lazy">
-    <img src="images/bedroom-8.jpg" alt="Bedroom" loading="lazy">
-    <img src="images/kitchen-1.jpg" alt="Fully equipped kitchen" loading="lazy">
-    <img src="images/kitchen-2.jpg" alt="Kitchen detail" loading="lazy">
-    <img src="images/dining-room-1.jpg" alt="Dining area" loading="lazy">
-    <img src="images/dining-room-2.jpg" alt="Dining room" loading="lazy">
-    <img src="images/bathroom-1.jpg" alt="Private bathroom" loading="lazy">
-    <img src="images/bathroom-2.jpg" alt="Bathroom" loading="lazy">
-    <img src="images/bathroom-3.jpg" alt="Bathroom detail" loading="lazy">
-  </div>
-</div>
-
-<script>
-  const navbar = document.getElementById('navbar');
-  const scrollTopBtn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-  });
-
-  // Photo modal
-  const photoModal = document.getElementById('photoModal');
-
-  function openPhotoModal() {
-    photoModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closePhotoModal() {
-    photoModal.classList.remove('open');
-    if (!lightbox.classList.contains('open')) document.body.style.overflow = '';
-  }
-
-  photoModal.addEventListener('click', (e) => {
-    if (e.target === photoModal) closePhotoModal();
-  });
-
-  // Lightbox - all 25 photos as the master list
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxCounter = document.getElementById('lightboxCounter');
-  const allPhotos = Array.from(photoModal.querySelectorAll('.modal-grid img')).map(img => ({
-    src: img.src, alt: img.alt
-  }));
-  let currentIndex = 0;
-
-  function openLightbox(index) {
-    currentIndex = index;
-    showLightboxImage();
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    if (!photoModal.classList.contains('open')) document.body.style.overflow = '';
-  }
-
-  function lightboxNav(dir) {
-    currentIndex = (currentIndex + dir + allPhotos.length) % allPhotos.length;
-    showLightboxImage();
-  }
-
-  function showLightboxImage() {
-    lightboxImg.src = allPhotos[currentIndex].src;
-    lightboxImg.alt = allPhotos[currentIndex].alt;
-    lightboxCounter.textContent = `${currentIndex + 1} / ${allPhotos.length}`;
-  }
-
-  function indexFromSrc(src) {
-    const name = src.split('/').pop();
-    return allPhotos.findIndex(p => p.src.split('/').pop() === name);
-  }
-
-  photoModal.querySelectorAll('.modal-grid img').forEach((img) => {
-    img.addEventListener('click', () => openLightbox(indexFromSrc(img.src)));
-  });
-
-  document.querySelectorAll('.gallery-item img').forEach((img) => {
-    img.addEventListener('click', () => {
-      const idx = indexFromSrc(img.src);
-      openLightbox(idx !== -1 ? idx : 0);
-    });
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.classList.contains('open')) {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') lightboxNav(1);
-      if (e.key === 'ArrowLeft') lightboxNav(-1);
-    } else if (e.key === 'Escape') {
-      closePhotoModal();
-    }
-  });
-
-  let touchStartX = 0;
-  lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
-  lightbox.addEventListener('touchend', (e) => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 50) lightboxNav(dx < 0 ? 1 : -1);
-  });
-
-  // Booking form
-  const HOST_EMAIL = 'info@sunsetview.gr';
-  const WEB3FORMS_KEY = '61c0e790-289f-4102-b2e9-a3488628b94b';
-  const bookingForm = document.getElementById('bookingForm');
-  const checkinInput = document.getElementById('checkin');
-  const checkoutInput = document.getElementById('checkout');
-
-  const todayStr = new Date().toISOString().split('T')[0];
-  checkinInput.min = todayStr;
-  checkoutInput.min = todayStr;
-  checkinInput.addEventListener('change', () => {
-    checkoutInput.min = checkinInput.value;
-    if (checkoutInput.value && checkoutInput.value <= checkinInput.value) checkoutInput.value = '';
-  });
-
-  const bookingLabels = {
-    en: {
-      subject: 'Booking request - Sunset View',
-      sending: 'Sending...',
-      success: 'Thank you! Your request has been sent - we will get back to you shortly.',
-      error: 'Something went wrong. Please try again, or email us directly at'
-    },
-    el: {
-      subject: 'Αίτημα κράτησης - Sunset View',
-      sending: 'Αποστολή...',
-      success: 'Ευχαριστούμε! Το αίτημά σας στάλθηκε - θα επικοινωνήσουμε σύντομα μαζί σας.',
-      error: 'Κάτι πήγε στραβά. Δοκιμάστε ξανά, ή στείλτε email απευθείας στο'
-    }
-  };
-
-  const bookingModal = document.getElementById('bookingModal');
-  const bookingModalCard = document.getElementById('bookingModalCard');
-  const bookingModalIcon = document.getElementById('bookingModalIcon');
-  const bookingModalText = document.getElementById('bookingModalText');
-  const btnSubmit = document.getElementById('btnSubmit');
-
-  function openBookingModal(text, isError) {
-    bookingModalCard.classList.toggle('error', isError);
-    bookingModalIcon.textContent = isError ? '⚠' : '✓';
-    bookingModalText.textContent = text;
-    bookingModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeBookingModal() {
-    bookingModal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('bookingModalClose').addEventListener('click', closeBookingModal);
-  bookingModal.addEventListener('click', (e) => {
-    if (e.target === bookingModal) closeBookingModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && bookingModal.classList.contains('open')) closeBookingModal();
-  });
-
-  btnSubmit.addEventListener('click', async () => {
-    if (!bookingForm.reportValidity()) return;
-    const t = bookingLabels[currentLang];
-    const guestEmail = document.getElementById('email').value;
-    const originalLabel = btnSubmit.textContent;
-
-    btnSubmit.disabled = true;
-    btnSubmit.textContent = t.sending;
-
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject: t.subject,
-          from_name: 'Sunset View - Booking Form',
-          replyto: guestEmail,
-          name: document.getElementById('name').value,
-          email: guestEmail,
-          checkin: checkinInput.value,
-          checkout: checkoutInput.value,
-          guests: document.getElementById('guests').value,
-          message: document.getElementById('message').value,
-        }),
+    <script src="blocked-dates.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      const navbar = document.getElementById("navbar");
+      const scrollTopBtn = document.getElementById("scrollTop");
+      window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 60);
+        scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
       });
-      const data = await res.json();
-      if (!data.success) throw new Error(data.message || 'Submission failed');
 
-      openBookingModal(t.success, false);
-      bookingForm.reset();
-    } catch (err) {
-      openBookingModal(`${t.error} ${HOST_EMAIL}`, true);
-    } finally {
-      btnSubmit.disabled = false;
-      btnSubmit.textContent = originalLabel;
-    }
-  });
+      // Photo modal
+      const photoModal = document.getElementById("photoModal");
 
-  // Language toggle
-  const i18n = {
-    en: {
-      title: 'Sunset View - Paralia Ofryniou, Greece',
-      navCta: 'Request to Book',
-      heroEyebrow: 'Paralia Ofryniou · Greece',
-      heroSub: 'A beachfront escape with astonishing views of the Greek sea',
-      heroRating: '4.89 · 18 reviews',
-      heroBtn: 'Reserve Your Stay',
-      scroll: 'Scroll',
-      aboutLabel: 'About the Space',
-      aboutTitle: 'A place to <em>breathe</em> in Greece',
-      aboutP1: 'Brand new and thoughtfully appointed, Sunset View is a quiet retreat on the second floor of a two-storey building in Paralia Ofryniou - steps from the sea, yet close to the heart of the village.',
-      aboutP2: 'The apartment comfortably sleeps up to five guests, making it perfect for families or small groups seeking an authentic Greek seaside escape. Wake up to the shimmering Aegean, enjoy your morning coffee on the terrace, and let the rhythm of the sea set the pace for your day.',
-      highlightsLabel: 'Why Guests Love It',
-      highlightsTitle: 'Everything you <em>need</em>',
-      highlights: [
-        { title: 'Beachfront Access', desc: 'Direct access to the beach - the sea is practically your backyard.' },
-        { title: 'Astonishing Views', desc: 'Floor-to-ceiling views of the Aegean that guests rave about.' },
-        { title: 'Free Parking', desc: 'One of the few spots in the area with free on-premises parking.' },
-        { title: 'Great Restaurants', desc: 'Excellent dining options are just a short stroll away.' },
-        { title: 'Self Check-In', desc: 'Arrive on your own schedule - easy lockbox access awaits.' },
-        { title: 'Full Amenities', desc: 'Kitchen, WiFi, Smart TV - everything for a comfortable stay.' },
-      ],
-      galleryLabel: 'Gallery',
-      galleryTitle: 'See the <em>space</em>',
-      galleryBtn: '⊞ Show all 25 photos',
-      sleepingLabel: 'Sleeping Arrangements',
-      sleepingTitle: 'Sleeps up to <em>5 guests</em>',
-      sleeping: [
-        { label: 'Bedroom', value: '1 comfortable double bed' },
-        { label: 'Living Room', value: '1 sofa bed + 1 built-in couch' },
-        { label: 'Bathroom', value: '1 private full bathroom' },
-      ],
-      reviewsLabel: 'Guest Reviews',
-      reviewsTitle: 'What guests <em>say</em>',
-      reviewsCount: '18 reviews',
-      reviewCats: ['Cleanliness', 'Accuracy', 'Check-in', 'Communication', 'Location', 'Value'],
-      locationLabel: "Where You'll Be",
-      locationTitle: 'Paralia <em>Ofryniou</em>',
-      locationP1: 'A charming seaside village in the Kavala regional unit of northern Greece. Peaceful, authentic, and blessed with clear blue waters - exactly what a Greek summer should feel like.',
-      locationP2: 'The apartment sits in a quiet area while still being walking distance from the village center, tavernas, and the beach.',
-      locationPoints: ['Steps from the beach', 'Local tavernas & restaurants nearby', 'Village center within walking distance', 'Free parking on premises'],
-      bookingLabel: 'Request to Book',
-      bookingTitle: 'Plan your <em>stay</em>',
-      checkinLabel: 'Check-in',
-      checkoutLabel: 'Check-out',
-      guestsLabel: 'Guests',
-      nameLabel: 'Full Name',
-      emailLabel: 'Email',
-      messageLabel: 'Message (optional)',
-      submitBtn: 'Send Booking Request',
-      bookingNote: "No online payment - we'll confirm availability and details directly with you.",
-      ctaLabel: 'Ready to escape?',
-      ctaTitle: 'Your Greek summer<br><em>awaits</em>',
-      ctaSub: 'Self check-in · Free parking · Beachfront · Direct booking',
-      ctaBtn: 'Request to Book',
-      footerText: 'Paralia Ofryniou, Greece · Hosted by Eleni',
-      footerLink: 'Request a Booking ↗',
-      modalTitle: 'All photos · Sunset View',
-    },
-    el: {
-      title: 'Sunset View - Παραλία Οφρυνίου, Ελλάδα',
-      navCta: 'Αίτημα Κράτησης',
-      heroEyebrow: 'Παραλία Οφρυνίου · Ελλάδα',
-      heroSub: 'Μια παραθαλάσσια απόδραση με εκπληκτική θέα στο Αιγαίο',
-      heroRating: '4.89 · 18 κριτικές',
-      heroBtn: 'Κάντε Κράτηση',
-      scroll: 'Κύλιση',
-      aboutLabel: 'Σχετικά με τον Χώρο',
-      aboutTitle: 'Ένα μέρος να <em>αναπνεύσεις</em> στην Ελλάδα',
-      aboutP1: 'Ολοκαίνουργιο και επιμελώς διακοσμημένο, το Sunset View είναι ένα ήσυχο καταφύγιο στον δεύτερο όροφο ενός διώροφου κτιρίου στην Παραλία Οφρυνίου - βήματα από τη θάλασσα, αλλά κοντά στην καρδιά του χωριού.',
-      aboutP2: 'Το διαμέρισμα φιλοξενεί άνετα έως πέντε επισκέπτες, ιδανικό για οικογένειες ή μικρές παρέες που αναζητούν μια αυθεντική ελληνική παραθαλάσσια εμπειρία. Ξυπνήστε με θέα στο λαμπερό Αιγαίο, απολαύστε τον πρωινό σας καφέ στη βεράντα και αφήστε τον ρυθμό της θάλασσας να καθορίσει την ημέρα σας.',
-      highlightsLabel: 'Γιατί το Αγαπούν',
-      highlightsTitle: 'Όλα όσα <em>χρειάζεστε</em>',
-      highlights: [
-        { title: 'Πρόσβαση στην Παραλία', desc: 'Άμεση πρόσβαση στην παραλία - η θάλασσα είναι κυριολεκτικά η αυλή σας.' },
-        { title: 'Εκπληκτική Θέα', desc: 'Πανοραμική θέα στο Αιγαίο που εντυπωσιάζει κάθε επισκέπτη.' },
-        { title: 'Δωρεάν Παρκινγκ', desc: 'Ένα από τα λίγα σπίτια στην περιοχή με δωρεάν χώρο στάθμευσης.' },
-        { title: 'Εξαιρετικά Εστιατόρια', desc: 'Υπέροχες επιλογές φαγητού σε μικρή απόσταση με τα πόδια.' },
-        { title: 'Αυτόματο Check-In', desc: 'Φτάστε όποτε θέλετε - εύκολη πρόσβαση μέσω κλειδοθήκης.' },
-        { title: 'Πλήρεις Ανέσεις', desc: 'Κουζίνα, WiFi, Smart TV - όλα για μια άνετη διαμονή.' },
-      ],
-      galleryLabel: 'Γκαλερί',
-      galleryTitle: 'Δείτε τον <em>χώρο</em>',
-      galleryBtn: '⊞ Εμφάνιση όλων των 25 φωτογραφιών',
-      sleepingLabel: 'Χωρητικότητα',
-      sleepingTitle: 'Φιλοξενεί έως <em>5 επισκέπτες</em>',
-      sleeping: [
-        { label: 'Υπνοδωμάτιο', value: '1 άνετο διπλό κρεβάτι' },
-        { label: 'Σαλόνι', value: '1 καναπές-κρεβάτι + 1 χτιστός καναπές' },
-        { label: 'Μπάνιο', value: '1 ιδιωτικό μπάνιο' },
-      ],
-      reviewsLabel: 'Κριτικές Επισκεπτών',
-      reviewsTitle: 'Τι λένε οι <em>επισκέπτες</em>',
-      reviewsCount: '18 κριτικές',
-      reviewCats: ['Καθαριότητα', 'Ακρίβεια', 'Check-in', 'Επικοινωνία', 'Τοποθεσία', 'Αξία'],
-      locationLabel: 'Πού θα Βρίσκεστε',
-      locationTitle: 'Παραλία <em>Οφρυνίου</em>',
-      locationP1: 'Ένα γοητευτικό παραθαλάσσιο χωριό στην περιφερειακή ενότητα Καβάλας, στη βόρεια Ελλάδα. Ήρεμο, αυθεντικό και ευλογημένο με γαλαζοπράσινα νερά - ακριβώς αυτό που πρέπει να είναι ένα ελληνικό καλοκαίρι.',
-      locationP2: 'Το διαμέρισμα βρίσκεται σε ήσυχη περιοχή, αλλά σε κοντινή απόσταση με τα πόδια από το κέντρο του χωριού, τις ταβέρνες και την παραλία.',
-      locationPoints: ['Βήματα από την παραλία', 'Τοπικές ταβέρνες & εστιατόρια κοντά', 'Κέντρο χωριού σε κοντινή απόσταση', 'Δωρεάν παρκινγκ στο χώρο'],
-      bookingLabel: 'Αίτημα Κράτησης',
-      bookingTitle: 'Σχεδιάστε τη <em>διαμονή</em> σας',
-      checkinLabel: 'Άφιξη',
-      checkoutLabel: 'Αναχώρηση',
-      guestsLabel: 'Επισκέπτες',
-      nameLabel: 'Ονοματεπώνυμο',
-      emailLabel: 'Email',
-      messageLabel: 'Μήνυμα (προαιρετικό)',
-      submitBtn: 'Αποστολή Αιτήματος Κράτησης',
-      bookingNote: 'Χωρίς online πληρωμή - θα επιβεβαιώσουμε διαθεσιμότητα και λεπτομέρειες απευθείας μαζί σας.',
-      ctaLabel: 'Έτοιμοι για απόδραση;',
-      ctaTitle: 'Το ελληνικό σας καλοκαίρι<br><em>σας περιμένει</em>',
-      ctaSub: 'Αυτόματο check-in · Δωρεάν παρκινγκ · Παραθαλάσσιο · Απευθείας κράτηση',
-      ctaBtn: 'Κάντε Αίτημα Κράτησης',
-      footerText: 'Παραλία Οφρυνίου, Ελλάδα · Οικοδέσποινα: Ελένη',
-      footerLink: 'Κάντε Κράτηση ↗',
-      modalTitle: 'Όλες οι φωτογραφίες · Sunset View',
-    }
-  };
+      function openPhotoModal() {
+        photoModal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
 
-  let currentLang = localStorage.getItem('sv-lang') || 'en';
+      function closePhotoModal() {
+        photoModal.classList.remove("open");
+        if (!lightbox.classList.contains("open"))
+          document.body.style.overflow = "";
+      }
 
-  function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('sv-lang', lang);
-    document.documentElement.lang = lang;
-    document.title = i18n[lang].title;
-    document.getElementById('lang-toggle').textContent = lang === 'en' ? 'GR' : 'EN';
+      photoModal.addEventListener("click", (e) => {
+        if (e.target === photoModal) closePhotoModal();
+      });
 
-    const t = i18n[lang];
+      // Lightbox - all 25 photos as the master list
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const lightboxCounter = document.getElementById("lightboxCounter");
+      const allPhotos = Array.from(
+        photoModal.querySelectorAll(".modal-grid img"),
+      ).map((img) => ({
+        src: img.src,
+        alt: img.alt,
+      }));
+      let currentIndex = 0;
 
-    document.querySelector('.nav-cta').textContent = t.navCta;
-    document.querySelector('.hero-eyebrow').textContent = t.heroEyebrow;
-    document.querySelector('.hero-sub').textContent = t.heroSub;
-    document.querySelector('.hero-rating span:last-child').textContent = t.heroRating;
-    document.querySelector('.hero-btn').textContent = t.heroBtn;
-    document.querySelector('.scroll-hint span').textContent = t.scroll;
+      function openLightbox(index) {
+        currentIndex = index;
+        showLightboxImage();
+        lightbox.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
 
-    const aboutText = document.querySelector('.about-text');
-    aboutText.querySelector('.section-label').textContent = t.aboutLabel;
-    aboutText.querySelector('.section-title').innerHTML = t.aboutTitle;
-    const aboutPs = aboutText.querySelectorAll('p:not(.section-label)');
-    aboutPs[0].textContent = t.aboutP1;
-    aboutPs[1].textContent = t.aboutP2;
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        if (!photoModal.classList.contains("open"))
+          document.body.style.overflow = "";
+      }
 
-    document.querySelector('.highlights .section-label').textContent = t.highlightsLabel;
-    document.querySelector('.highlights .section-title').innerHTML = t.highlightsTitle;
-    document.querySelectorAll('.highlight-card').forEach((card, i) => {
-      card.querySelector('.highlight-title').textContent = t.highlights[i].title;
-      card.querySelector('.highlight-desc').textContent = t.highlights[i].desc;
-    });
+      function lightboxNav(dir) {
+        currentIndex =
+          (currentIndex + dir + allPhotos.length) % allPhotos.length;
+        showLightboxImage();
+      }
 
-    document.querySelector('.gallery .section-label').textContent = t.galleryLabel;
-    document.querySelector('.gallery .section-title').innerHTML = t.galleryTitle;
-    document.querySelector('.gallery-btn').textContent = t.galleryBtn;
+      function showLightboxImage() {
+        lightboxImg.src = allPhotos[currentIndex].src;
+        lightboxImg.alt = allPhotos[currentIndex].alt;
+        lightboxCounter.textContent = `${currentIndex + 1} / ${allPhotos.length}`;
+      }
 
-    document.querySelector('.sleeping .section-label').textContent = t.sleepingLabel;
-    document.querySelector('.sleeping .section-title').innerHTML = t.sleepingTitle;
-    document.querySelectorAll('.sleep-card').forEach((card, i) => {
-      card.querySelector('.sleep-card-label').textContent = t.sleeping[i].label;
-      card.querySelector('.sleep-card-value').textContent = t.sleeping[i].value;
-    });
+      function indexFromSrc(src) {
+        const name = src.split("/").pop();
+        return allPhotos.findIndex((p) => p.src.split("/").pop() === name);
+      }
 
-    document.querySelector('.reviews .section-label').textContent = t.reviewsLabel;
-    document.querySelector('.reviews .section-title').innerHTML = t.reviewsTitle;
-    document.querySelector('.rating-count').textContent = t.reviewsCount;
-    document.querySelectorAll('.review-cat-name').forEach((el, i) => {
-      el.textContent = t.reviewCats[i];
-    });
+      photoModal.querySelectorAll(".modal-grid img").forEach((img) => {
+        img.addEventListener("click", () =>
+          openLightbox(indexFromSrc(img.src)),
+        );
+      });
 
-    document.querySelector('.location .section-label').textContent = t.locationLabel;
-    document.querySelector('.location .section-title').innerHTML = t.locationTitle;
-    const locDiv = document.querySelector('.location-inner > div:first-child');
-    locDiv.querySelectorAll('p:not(.section-label)').forEach((p, i) => {
-      p.textContent = [t.locationP1, t.locationP2][i];
-    });
-    document.querySelectorAll('.location-points li').forEach((li, i) => {
-      li.childNodes[1].nodeValue = ' ' + t.locationPoints[i];
-    });
+      document.querySelectorAll(".gallery-item img").forEach((img) => {
+        img.addEventListener("click", () => {
+          const idx = indexFromSrc(img.src);
+          openLightbox(idx !== -1 ? idx : 0);
+        });
+      });
 
-    document.querySelector('.booking .section-label').textContent = t.bookingLabel;
-    document.querySelector('.booking .section-title').innerHTML = t.bookingTitle;
-    document.querySelector('label[for="checkin"]').textContent = t.checkinLabel;
-    document.querySelector('label[for="checkout"]').textContent = t.checkoutLabel;
-    document.querySelector('label[for="guests"]').textContent = t.guestsLabel;
-    document.querySelector('label[for="name"]').textContent = t.nameLabel;
-    document.querySelector('label[for="email"]').textContent = t.emailLabel;
-    document.querySelector('label[for="message"]').textContent = t.messageLabel;
-    document.getElementById('btnSubmit').textContent = t.submitBtn;
-    document.querySelector('.booking-note').textContent = t.bookingNote;
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
 
-    document.querySelector('.cta-label').textContent = t.ctaLabel;
-    document.querySelector('.cta-title').innerHTML = t.ctaTitle;
-    document.querySelector('.cta-sub').textContent = t.ctaSub;
-    document.querySelector('.cta-btn').textContent = t.ctaBtn;
+      document.addEventListener("keydown", (e) => {
+        if (lightbox.classList.contains("open")) {
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowRight") lightboxNav(1);
+          if (e.key === "ArrowLeft") lightboxNav(-1);
+        } else if (e.key === "Escape") {
+          closePhotoModal();
+        }
+      });
 
-    document.querySelector('.footer-text').textContent = t.footerText;
-    document.querySelector('.footer-link').textContent = t.footerLink;
-    document.querySelector('.modal-title').textContent = t.modalTitle;
-  }
+      let touchStartX = 0;
+      lightbox.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].clientX;
+        },
+        { passive: true },
+      );
+      lightbox.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) lightboxNav(dx < 0 ? 1 : -1);
+      });
 
-  function toggleLang() {
-    setLang(currentLang === 'en' ? 'el' : 'en');
-  }
+      // Booking form
+      const HOST_EMAIL = "info@sunsetview.gr";
+      const WEB3FORMS_KEY = "61c0e790-289f-4102-b2e9-a3488628b94b";
+      const bookingForm = document.getElementById("bookingForm");
+      const checkinInput = document.getElementById("checkin");
+      const checkoutInput = document.getElementById("checkout");
 
-  setLang(currentLang);
-</script>
+      const todayStr = new Date().toISOString().split("T")[0];
 
-</body>
+      function addDays(dateStr, n) {
+        const d = new Date(dateStr + "T00:00:00Z");
+        d.setUTCDate(d.getUTCDate() + n);
+        return d.toISOString().split("T")[0];
+      }
+
+      // flatpickr's "to" is inclusive. A block's start day is still a valid
+      // checkout (previous guest leaves as the next one arrives), so it's
+      // only disabled for check-in, not for check-out.
+      const checkinDisabledRanges = BLOCKED_RANGES.map(([start, end]) => ({
+        from: start,
+        to: addDays(end, -1),
+      }));
+      const checkoutDisabledRanges = BLOCKED_RANGES.map(([start, end]) => ({
+        from: addDays(start, 1),
+        to: addDays(end, -1),
+      })).filter(({ from, to }) => from <= to);
+
+      const checkoutFp = flatpickr(checkoutInput, {
+        dateFormat: "Y-m-d",
+        minDate: todayStr,
+        disable: checkoutDisabledRanges,
+      });
+
+      const checkinFp = flatpickr(checkinInput, {
+        dateFormat: "Y-m-d",
+        minDate: todayStr,
+        disable: checkinDisabledRanges,
+        onChange: (selectedDates, dateStr) => {
+          const nextBlockStart = BLOCKED_RANGES.map(([start]) => start)
+            .filter((start) => start > dateStr)
+            .sort()[0];
+          checkoutFp.set("minDate", addDays(dateStr, 1));
+          checkoutFp.set("maxDate", nextBlockStart || null);
+          if (checkoutInput.value && checkoutInput.value <= dateStr)
+            checkoutFp.clear();
+        },
+      });
+
+      function isRangeBlocked(checkin, checkout) {
+        return BLOCKED_RANGES.some(
+          ([start, end]) => checkin < end && start < checkout
+        );
+      }
+
+      const bookingLabels = {
+        en: {
+          subject: "Booking request - Sunset View",
+          sending: "Sending...",
+          success:
+            "Thank you! Your request has been sent - we will get back to you shortly.",
+          error:
+            "Something went wrong. Please try again, or email us directly at",
+          unavailable:
+            "Those dates are already booked. Please choose different dates.",
+        },
+        el: {
+          subject: "Αίτημα κράτησης - Sunset View",
+          sending: "Αποστολή...",
+          success:
+            "Ευχαριστούμε! Το αίτημά σας στάλθηκε - θα επικοινωνήσουμε σύντομα μαζί σας.",
+          error:
+            "Κάτι πήγε στραβά. Δοκιμάστε ξανά, ή στείλτε email απευθείας στο",
+          unavailable:
+            "Αυτές οι ημερομηνίες είναι ήδη κλεισμένες. Παρακαλώ επιλέξτε άλλες.",
+        },
+      };
+
+      const bookingModal = document.getElementById("bookingModal");
+      const bookingModalCard = document.getElementById("bookingModalCard");
+      const bookingModalIcon = document.getElementById("bookingModalIcon");
+      const bookingModalText = document.getElementById("bookingModalText");
+      const btnSubmit = document.getElementById("btnSubmit");
+
+      function openBookingModal(text, isError) {
+        bookingModalCard.classList.toggle("error", isError);
+        bookingModalIcon.textContent = isError ? "⚠" : "✓";
+        bookingModalText.textContent = text;
+        bookingModal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeBookingModal() {
+        bookingModal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      document
+        .getElementById("bookingModalClose")
+        .addEventListener("click", closeBookingModal);
+      bookingModal.addEventListener("click", (e) => {
+        if (e.target === bookingModal) closeBookingModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && bookingModal.classList.contains("open"))
+          closeBookingModal();
+      });
+
+      btnSubmit.addEventListener("click", async () => {
+        if (!bookingForm.reportValidity()) return;
+        const t = bookingLabels[currentLang];
+        if (isRangeBlocked(checkinInput.value, checkoutInput.value)) {
+          openBookingModal(t.unavailable, true);
+          return;
+        }
+        const guestEmail = document.getElementById("email").value;
+        const originalLabel = btnSubmit.textContent;
+
+        btnSubmit.disabled = true;
+        btnSubmit.textContent = t.sending;
+
+        try {
+          const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              access_key: WEB3FORMS_KEY,
+              subject: t.subject,
+              from_name: "Sunset View - Booking Form",
+              replyto: guestEmail,
+              name: document.getElementById("name").value,
+              email: guestEmail,
+              checkin: checkinInput.value,
+              checkout: checkoutInput.value,
+              guests: document.getElementById("guests").value,
+              message: document.getElementById("message").value,
+            }),
+          });
+          const data = await res.json();
+          if (!data.success)
+            throw new Error(data.message || "Submission failed");
+
+          openBookingModal(t.success, false);
+          bookingForm.reset();
+          checkinFp.clear();
+          checkoutFp.clear();
+        } catch (err) {
+          openBookingModal(`${t.error} ${HOST_EMAIL}`, true);
+        } finally {
+          btnSubmit.disabled = false;
+          btnSubmit.textContent = originalLabel;
+        }
+      });
+
+      // Language toggle
+      const i18n = {
+        en: {
+          title: "Sunset View - Paralia Ofryniou, Greece",
+          navCta: "Request to Book",
+          heroEyebrow: "Paralia Ofryniou · Greece",
+          heroSub:
+            "A beachfront escape with astonishing views of the Greek sea",
+          heroRating: "4.89 · 18 reviews",
+          heroBtn: "Reserve Your Stay",
+          scroll: "Scroll",
+          aboutLabel: "About the Space",
+          aboutTitle: "A place to <em>breathe</em> in Greece",
+          aboutP1:
+            "Brand new and thoughtfully appointed, Sunset View is a quiet retreat on the second floor of a two-storey building in Paralia Ofryniou - steps from the sea, yet close to the heart of the village.",
+          aboutP2:
+            "The apartment comfortably sleeps up to five guests, making it perfect for families or small groups seeking an authentic Greek seaside escape. Wake up to the shimmering Aegean, enjoy your morning coffee on the terrace, and let the rhythm of the sea set the pace for your day.",
+          highlightsLabel: "Why Guests Love It",
+          highlightsTitle: "Everything you <em>need</em>",
+          highlights: [
+            {
+              title: "Beachfront Access",
+              desc: "Direct access to the beach - the sea is practically your backyard.",
+            },
+            {
+              title: "Astonishing Views",
+              desc: "Floor-to-ceiling views of the Aegean that guests rave about.",
+            },
+            {
+              title: "Free Parking",
+              desc: "One of the few spots in the area with free on-premises parking.",
+            },
+            {
+              title: "Great Restaurants",
+              desc: "Excellent dining options are just a short stroll away.",
+            },
+            {
+              title: "Self Check-In",
+              desc: "Arrive on your own schedule - easy lockbox access awaits.",
+            },
+            {
+              title: "Full Amenities",
+              desc: "Kitchen, WiFi, Smart TV - everything for a comfortable stay.",
+            },
+          ],
+          galleryLabel: "Gallery",
+          galleryTitle: "See the <em>space</em>",
+          galleryBtn: "⊞ Show all 25 photos",
+          sleepingLabel: "Sleeping Arrangements",
+          sleepingTitle: "Sleeps up to <em>5 guests</em>",
+          sleeping: [
+            { label: "Bedroom", value: "1 comfortable double bed" },
+            { label: "Living Room", value: "1 sofa bed + 1 built-in couch" },
+            { label: "Bathroom", value: "1 private full bathroom" },
+          ],
+          reviewsLabel: "Guest Reviews",
+          reviewsTitle: "What guests <em>say</em>",
+          reviewsCount: "18 reviews",
+          reviewCats: [
+            "Cleanliness",
+            "Accuracy",
+            "Check-in",
+            "Communication",
+            "Location",
+            "Value",
+          ],
+          locationLabel: "Where You'll Be",
+          locationTitle: "Paralia <em>Ofryniou</em>",
+          locationP1:
+            "A charming seaside village in the Kavala regional unit of northern Greece. Peaceful, authentic, and blessed with clear blue waters - exactly what a Greek summer should feel like.",
+          locationP2:
+            "The apartment sits in a quiet area while still being walking distance from the village center, tavernas, and the beach.",
+          locationPoints: [
+            "Steps from the beach",
+            "Local tavernas & restaurants nearby",
+            "Village center within walking distance",
+            "Free parking on premises",
+          ],
+          bookingLabel: "Request to Book",
+          bookingTitle: "Plan your <em>stay</em>",
+          checkinLabel: "Check-in",
+          checkoutLabel: "Check-out",
+          guestsLabel: "Guests",
+          nameLabel: "Full Name",
+          emailLabel: "Email",
+          messageLabel: "Message (optional)",
+          submitBtn: "Send Booking Request",
+          bookingNote:
+            "No online payment - we'll confirm availability and details directly with you.",
+          ctaLabel: "Ready to escape?",
+          ctaTitle: "Your Greek summer<br><em>awaits</em>",
+          ctaSub: "Self check-in · Free parking · Beachfront · Direct booking",
+          ctaBtn: "Request to Book",
+          footerText: "Paralia Ofryniou, Greece · Hosted by Eleni",
+          footerLink: "Request a Booking ↗",
+          modalTitle: "All photos · Sunset View",
+        },
+        el: {
+          title: "Sunset View - Παραλία Οφρυνίου, Ελλάδα",
+          navCta: "Αίτημα Κράτησης",
+          heroEyebrow: "Παραλία Οφρυνίου · Ελλάδα",
+          heroSub: "Μια παραθαλάσσια απόδραση με εκπληκτική θέα στο Αιγαίο",
+          heroRating: "4.89 · 18 κριτικές",
+          heroBtn: "Κάντε Κράτηση",
+          scroll: "Κύλιση",
+          aboutLabel: "Σχετικά με τον Χώρο",
+          aboutTitle: "Ένα μέρος να <em>αναπνεύσεις</em> στην Ελλάδα",
+          aboutP1:
+            "Ολοκαίνουργιο και επιμελώς διακοσμημένο, το Sunset View είναι ένα ήσυχο καταφύγιο στον δεύτερο όροφο ενός διώροφου κτιρίου στην Παραλία Οφρυνίου - βήματα από τη θάλασσα, αλλά κοντά στην καρδιά του χωριού.",
+          aboutP2:
+            "Το διαμέρισμα φιλοξενεί άνετα έως πέντε επισκέπτες, ιδανικό για οικογένειες ή μικρές παρέες που αναζητούν μια αυθεντική ελληνική παραθαλάσσια εμπειρία. Ξυπνήστε με θέα στο λαμπερό Αιγαίο, απολαύστε τον πρωινό σας καφέ στη βεράντα και αφήστε τον ρυθμό της θάλασσας να καθορίσει την ημέρα σας.",
+          highlightsLabel: "Γιατί το Αγαπούν",
+          highlightsTitle: "Όλα όσα <em>χρειάζεστε</em>",
+          highlights: [
+            {
+              title: "Πρόσβαση στην Παραλία",
+              desc: "Άμεση πρόσβαση στην παραλία - η θάλασσα είναι κυριολεκτικά η αυλή σας.",
+            },
+            {
+              title: "Εκπληκτική Θέα",
+              desc: "Πανοραμική θέα στο Αιγαίο που εντυπωσιάζει κάθε επισκέπτη.",
+            },
+            {
+              title: "Δωρεάν Παρκινγκ",
+              desc: "Ένα από τα λίγα σπίτια στην περιοχή με δωρεάν χώρο στάθμευσης.",
+            },
+            {
+              title: "Εξαιρετικά Εστιατόρια",
+              desc: "Υπέροχες επιλογές φαγητού σε μικρή απόσταση με τα πόδια.",
+            },
+            {
+              title: "Αυτόματο Check-In",
+              desc: "Φτάστε όποτε θέλετε - εύκολη πρόσβαση μέσω κλειδοθήκης.",
+            },
+            {
+              title: "Πλήρεις Ανέσεις",
+              desc: "Κουζίνα, WiFi, Smart TV - όλα για μια άνετη διαμονή.",
+            },
+          ],
+          galleryLabel: "Γκαλερί",
+          galleryTitle: "Δείτε τον <em>χώρο</em>",
+          galleryBtn: "⊞ Εμφάνιση όλων των 25 φωτογραφιών",
+          sleepingLabel: "Χωρητικότητα",
+          sleepingTitle: "Φιλοξενεί έως <em>5 επισκέπτες</em>",
+          sleeping: [
+            { label: "Υπνοδωμάτιο", value: "1 άνετο διπλό κρεβάτι" },
+            { label: "Σαλόνι", value: "1 καναπές-κρεβάτι + 1 χτιστός καναπές" },
+            { label: "Μπάνιο", value: "1 ιδιωτικό μπάνιο" },
+          ],
+          reviewsLabel: "Κριτικές Επισκεπτών",
+          reviewsTitle: "Τι λένε οι <em>επισκέπτες</em>",
+          reviewsCount: "18 κριτικές",
+          reviewCats: [
+            "Καθαριότητα",
+            "Ακρίβεια",
+            "Check-in",
+            "Επικοινωνία",
+            "Τοποθεσία",
+            "Αξία",
+          ],
+          locationLabel: "Πού θα Βρίσκεστε",
+          locationTitle: "Παραλία <em>Οφρυνίου</em>",
+          locationP1:
+            "Ένα γοητευτικό παραθαλάσσιο χωριό στην περιφερειακή ενότητα Καβάλας, στη βόρεια Ελλάδα. Ήρεμο, αυθεντικό και ευλογημένο με γαλαζοπράσινα νερά - ακριβώς αυτό που πρέπει να είναι ένα ελληνικό καλοκαίρι.",
+          locationP2:
+            "Το διαμέρισμα βρίσκεται σε ήσυχη περιοχή, αλλά σε κοντινή απόσταση με τα πόδια από το κέντρο του χωριού, τις ταβέρνες και την παραλία.",
+          locationPoints: [
+            "Βήματα από την παραλία",
+            "Τοπικές ταβέρνες & εστιατόρια κοντά",
+            "Κέντρο χωριού σε κοντινή απόσταση",
+            "Δωρεάν παρκινγκ στο χώρο",
+          ],
+          bookingLabel: "Αίτημα Κράτησης",
+          bookingTitle: "Σχεδιάστε τη <em>διαμονή</em> σας",
+          checkinLabel: "Άφιξη",
+          checkoutLabel: "Αναχώρηση",
+          guestsLabel: "Επισκέπτες",
+          nameLabel: "Ονοματεπώνυμο",
+          emailLabel: "Email",
+          messageLabel: "Μήνυμα (προαιρετικό)",
+          submitBtn: "Αποστολή Αιτήματος Κράτησης",
+          bookingNote:
+            "Χωρίς online πληρωμή - θα επιβεβαιώσουμε διαθεσιμότητα και λεπτομέρειες απευθείας μαζί σας.",
+          ctaLabel: "Έτοιμοι για απόδραση;",
+          ctaTitle: "Το ελληνικό σας καλοκαίρι<br><em>σας περιμένει</em>",
+          ctaSub:
+            "Αυτόματο check-in · Δωρεάν παρκινγκ · Παραθαλάσσιο · Απευθείας κράτηση",
+          ctaBtn: "Κάντε Αίτημα Κράτησης",
+          footerText: "Παραλία Οφρυνίου, Ελλάδα · Οικοδέσποινα: Ελένη",
+          footerLink: "Κάντε Κράτηση ↗",
+          modalTitle: "Όλες οι φωτογραφίες · Sunset View",
+        },
+      };
+
+      let currentLang = localStorage.getItem("sv-lang") || "en";
+
+      function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem("sv-lang", lang);
+        document.documentElement.lang = lang;
+        document.title = i18n[lang].title;
+        document.getElementById("lang-toggle").textContent =
+          lang === "en" ? "GR" : "EN";
+
+        const t = i18n[lang];
+
+        document.querySelector(".nav-cta").textContent = t.navCta;
+        document.querySelector(".hero-eyebrow").textContent = t.heroEyebrow;
+        document.querySelector(".hero-sub").textContent = t.heroSub;
+        document.querySelector(".hero-rating span:last-child").textContent =
+          t.heroRating;
+        document.querySelector(".hero-btn").textContent = t.heroBtn;
+        document.querySelector(".scroll-hint span").textContent = t.scroll;
+
+        const aboutText = document.querySelector(".about-text");
+        aboutText.querySelector(".section-label").textContent = t.aboutLabel;
+        aboutText.querySelector(".section-title").innerHTML = t.aboutTitle;
+        const aboutPs = aboutText.querySelectorAll("p:not(.section-label)");
+        aboutPs[0].textContent = t.aboutP1;
+        aboutPs[1].textContent = t.aboutP2;
+
+        document.querySelector(".highlights .section-label").textContent =
+          t.highlightsLabel;
+        document.querySelector(".highlights .section-title").innerHTML =
+          t.highlightsTitle;
+        document.querySelectorAll(".highlight-card").forEach((card, i) => {
+          card.querySelector(".highlight-title").textContent =
+            t.highlights[i].title;
+          card.querySelector(".highlight-desc").textContent =
+            t.highlights[i].desc;
+        });
+
+        document.querySelector(".gallery .section-label").textContent =
+          t.galleryLabel;
+        document.querySelector(".gallery .section-title").innerHTML =
+          t.galleryTitle;
+        document.querySelector(".gallery-btn").textContent = t.galleryBtn;
+
+        document.querySelector(".sleeping .section-label").textContent =
+          t.sleepingLabel;
+        document.querySelector(".sleeping .section-title").innerHTML =
+          t.sleepingTitle;
+        document.querySelectorAll(".sleep-card").forEach((card, i) => {
+          card.querySelector(".sleep-card-label").textContent =
+            t.sleeping[i].label;
+          card.querySelector(".sleep-card-value").textContent =
+            t.sleeping[i].value;
+        });
+
+        document.querySelector(".reviews .section-label").textContent =
+          t.reviewsLabel;
+        document.querySelector(".reviews .section-title").innerHTML =
+          t.reviewsTitle;
+        document.querySelector(".rating-count").textContent = t.reviewsCount;
+        document.querySelectorAll(".review-cat-name").forEach((el, i) => {
+          el.textContent = t.reviewCats[i];
+        });
+
+        document.querySelector(".location .section-label").textContent =
+          t.locationLabel;
+        document.querySelector(".location .section-title").innerHTML =
+          t.locationTitle;
+        const locDiv = document.querySelector(
+          ".location-inner > div:first-child",
+        );
+        locDiv.querySelectorAll("p:not(.section-label)").forEach((p, i) => {
+          p.textContent = [t.locationP1, t.locationP2][i];
+        });
+        document.querySelectorAll(".location-points li").forEach((li, i) => {
+          li.childNodes[1].nodeValue = " " + t.locationPoints[i];
+        });
+
+        document.querySelector(".booking .section-label").textContent =
+          t.bookingLabel;
+        document.querySelector(".booking .section-title").innerHTML =
+          t.bookingTitle;
+        document.querySelector('label[for="checkin"]').textContent =
+          t.checkinLabel;
+        document.querySelector('label[for="checkout"]').textContent =
+          t.checkoutLabel;
+        document.querySelector('label[for="guests"]').textContent =
+          t.guestsLabel;
+        document.querySelector('label[for="name"]').textContent = t.nameLabel;
+        document.querySelector('label[for="email"]').textContent = t.emailLabel;
+        document.querySelector('label[for="message"]').textContent =
+          t.messageLabel;
+        document.getElementById("btnSubmit").textContent = t.submitBtn;
+        document.querySelector(".booking-note").textContent = t.bookingNote;
+
+        document.querySelector(".cta-label").textContent = t.ctaLabel;
+        document.querySelector(".cta-title").innerHTML = t.ctaTitle;
+        document.querySelector(".cta-sub").textContent = t.ctaSub;
+        document.querySelector(".cta-btn").textContent = t.ctaBtn;
+
+        document.querySelector(".footer-text").textContent = t.footerText;
+        document.querySelector(".footer-link").textContent = t.footerLink;
+        document.querySelector(".modal-title").textContent = t.modalTitle;
+      }
+
+      function toggleLang() {
+        setLang(currentLang === "en" ? "el" : "en");
+      }
+
+      setLang(currentLang);
+    </script>
+  </body>
 </html>

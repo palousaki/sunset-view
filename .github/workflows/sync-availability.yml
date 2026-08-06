@@ -1,0 +1,31 @@
+name: Sync availability
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sync blocked dates from Airbnb calendar
+        env:
+          AIRBNB_ICS_URL: ${{ secrets.AIRBNB_ICS_URL }}
+        run: node scripts/sync-availability.mjs
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add blocked-dates.js
+          git diff --staged --quiet || git commit -m "Sync availability from Airbnb calendar"
+          git push
