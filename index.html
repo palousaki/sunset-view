@@ -1060,6 +1060,11 @@
         outline: none;
         border-color: var(--dusk);
       }
+      .booking-field input:disabled {
+        background: var(--sand-light);
+        color: var(--text-light);
+        cursor: not-allowed;
+      }
       .booking-actions {
         display: flex;
         gap: 1rem;
@@ -1749,6 +1754,7 @@
     </div>
 
     <script src="blocked-dates.js"></script>
+    <script src="min-nights.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
       const navbar = document.getElementById("navbar");
@@ -1885,6 +1891,44 @@
         to: addDays(end, -1),
       })).filter(({ from, to }) => from <= to);
 
+      function isRangeBlocked(checkin, checkout) {
+        return BLOCKED_RANGES.some(
+          ([start, end]) => checkin < end && start < checkout
+        );
+      }
+
+      function nextBlockStartAfter(dateStr) {
+        return BLOCKED_RANGES.map(([start]) => start)
+          .filter((start) => start > dateStr)
+          .sort()[0];
+      }
+
+      // A gap between two bookings that's shorter than the minimum stay
+      // can't actually be booked (e.g. the house is free for one night
+      // between two bookings but the minimum stay is two nights), so hide
+      // those check-in dates too instead of offering a stay that can't fit.
+      function minNightsCheckinDisable() {
+        const maxMinNights = Math.max(
+          DEFAULT_MIN_NIGHTS,
+          ...MIN_NIGHTS_OVERRIDES.map((o) => o.nights)
+        );
+        const disabled = [];
+        for (const [nextStart] of BLOCKED_RANGES) {
+          for (let nights = 1; nights < maxMinNights; nights++) {
+            const d = addDays(nextStart, -nights);
+            if (isRangeBlocked(d, addDays(d, 1))) continue;
+            if (nights < getMinNights(d)) disabled.push(d);
+          }
+        }
+        return disabled;
+      }
+
+      // Locked until a check-in date is picked - which checkout dates are
+      // valid depends entirely on the chosen check-in, so opening it first
+      // would show dates (like existing turnover days) that aren't actually
+      // reachable from any valid check-in.
+      checkoutInput.disabled = true;
+
       const checkoutFp = flatpickr(checkoutInput, {
         dateFormat: "Y-m-d",
         minDate: todayStr,
@@ -1894,28 +1938,24 @@
       const checkinFp = flatpickr(checkinInput, {
         dateFormat: "Y-m-d",
         minDate: todayStr,
-        disable: checkinDisabledRanges,
+        disable: [...checkinDisabledRanges, ...minNightsCheckinDisable()],
         onChange: (selectedDates, dateStr) => {
           if (!dateStr) {
+            checkoutFp.clear();
             checkoutFp.set("minDate", todayStr);
             checkoutFp.set("maxDate", null);
+            checkoutInput.disabled = true;
             return;
           }
-          const nextBlockStart = BLOCKED_RANGES.map(([start]) => start)
-            .filter((start) => start > dateStr)
-            .sort()[0];
-          checkoutFp.set("minDate", addDays(dateStr, 1));
+          const nextBlockStart = nextBlockStartAfter(dateStr);
+          const checkoutMinDate = addDays(dateStr, getMinNights(dateStr));
+          checkoutFp.set("minDate", checkoutMinDate);
           checkoutFp.set("maxDate", nextBlockStart || null);
-          if (checkoutInput.value && checkoutInput.value <= dateStr)
+          if (checkoutInput.value && checkoutInput.value < checkoutMinDate)
             checkoutFp.clear();
+          checkoutInput.disabled = false;
         },
       });
-
-      function isRangeBlocked(checkin, checkout) {
-        return BLOCKED_RANGES.some(
-          ([start, end]) => checkin < end && start < checkout
-        );
-      }
 
       const bookingLabels = {
         en: {
@@ -1927,6 +1967,10 @@
             "Something went wrong. Please try again, or email us directly at",
           unavailable:
             "Those dates are already booked. Please choose different dates.",
+          minNights: (n) =>
+            `The minimum stay for these dates is ${n} night${
+              n === 1 ? "" : "s"
+            }. Please choose a longer stay.`,
         },
         el: {
           subject: "Αίτημα κράτησης - Sunset View",
@@ -1937,6 +1981,10 @@
             "Κάτι πήγε στραβά. Δοκιμάστε ξανά, ή στείλτε email απευθείας στο",
           unavailable:
             "Αυτές οι ημερομηνίες είναι ήδη κλεισμένες. Παρακαλώ επιλέξτε άλλες.",
+          minNights: (n) =>
+            `Η ελάχιστη διαμονή για αυτές τις ημερομηνίες είναι ${n} ${
+              n === 1 ? "διανυκτέρευση" : "διανυκτερεύσεις"
+            }. Παρακαλώ επιλέξτε μεγαλύτερη διαμονή.`,
         },
       };
 
@@ -1975,6 +2023,14 @@
         const t = bookingLabels[currentLang];
         if (isRangeBlocked(checkinInput.value, checkoutInput.value)) {
           openBookingModal(t.unavailable, true);
+          return;
+        }
+        const minNights = getMinNights(checkinInput.value);
+        const nights =
+          (new Date(checkoutInput.value) - new Date(checkinInput.value)) /
+          86400000;
+        if (nights < minNights) {
+          openBookingModal(t.minNights(minNights), true);
           return;
         }
         const guestEmail = document.getElementById("email").value;
@@ -2101,6 +2157,7 @@
           bookingTitle: "Plan your <em>stay</em>",
           checkinLabel: "Check-in",
           checkoutLabel: "Check-out",
+          checkoutPlaceholder: "Select check-in first",
           guestsLabel: "Guests",
           nameLabel: "Full Name",
           emailLabel: "Email",
@@ -2195,6 +2252,7 @@
           bookingTitle: "Σχεδιάστε τη <em>διαμονή</em> σας",
           checkinLabel: "Άφιξη",
           checkoutLabel: "Αναχώρηση",
+          checkoutPlaceholder: "Επιλέξτε πρώτα άφιξη",
           guestsLabel: "Επισκέπτες",
           nameLabel: "Ονοματεπώνυμο",
           emailLabel: "Email",
@@ -2299,6 +2357,7 @@
           t.checkinLabel;
         document.querySelector('label[for="checkout"]').textContent =
           t.checkoutLabel;
+        // checkoutInput.placeholder = t.checkoutPlaceholder;
         document.querySelector('label[for="guests"]').textContent =
           t.guestsLabel;
         document.querySelector('label[for="name"]').textContent = t.nameLabel;

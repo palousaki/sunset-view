@@ -7,6 +7,7 @@ Static site for Sunset View, a holiday rental in Paralia Ofryniou, Greece. Serve
 - `index.html` — the whole site (single page)
 - `images/` — property photos
 - `blocked-dates.js` — booked/unavailable date ranges shown in the booking calendar; auto-generated, don't edit by hand
+- `min-nights.js` — minimum nights required for a booking; edit by hand to change the default or add date-specific overrides
 - `scripts/sync-availability.mjs` — pulls the Airbnb iCal feed and regenerates `blocked-dates.js`
 - `.github/workflows/sync-availability.yml` — runs the sync script every 6 hours, and can also be triggered manually
 
