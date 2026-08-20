@@ -3,5 +3,6 @@
 // Each range is [checkin, checkout) - checkout day itself is free.
 const BLOCKED_RANGES = [
   ["2026-08-18", "2026-08-29"],
+  ["2026-08-29", "2026-09-03"],
   ["2026-09-04", "2026-09-12"],
 ];
